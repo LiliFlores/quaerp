@@ -1,0 +1,419 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Payment</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Invoice Total</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input ng-model="invoice.total" type="text" class="form-control" readonly/>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input ng-value="invoice.customer.ccurrcode" type="text" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                                    <label class="control-label">Pay Code</label>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button ng-click="openPayCodeModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                            <input ng-model="invoice.customer.cpaycode" type="text" class="form-control" placeholder="Search paycode">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                                    <label class="control-label">Bank #</label>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <!-- <div class="input-search"> -->
+                                        <!-- <button type="submit" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button> -->
+                                        <input ng-model="invoice.cbankno" type="text" class="form-control" name="" placeholder="Search bank">
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Chk / Card #</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button ng-disabled="invoice.customer.cpaycode != 'CARD'" ng-click="openCardModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                            <input ng-disabled="invoice.customer.cpaycode != 'CARD'" ng-model="invoice.card.ccardno" type="text" class="form-control" name="" placeholder="Search card">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Exp Date</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input ng-model="invoice.card.cexpdate" ng-disabled="invoice.customer.cpaycode != 'CARD'" type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Cardholder</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="invoice.card.ccardname" ng-disabled="invoice.customer.cpaycode != 'CARD'" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Reference</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-disabled="invoice.customer.cpaycode != 'CARD'" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Billing Address</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                            <label class="control-label">Address #</label>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openAddressModal(1)" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                    <input ng-model="invoice.address1.caddrno" type="text" class="form-control" placeholder="Search address" aria-invalid="false">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Company</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address1.ccompany" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Address</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address1.caddr1" type="text" class="form-control" />
+                            <input ng-model="invoice.address1.caddr2" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">City</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address1.ccity" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                <label class="control-label">State</label>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input ng-model="invoice.address1.cstate" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                <label class="control-label">Zip</label>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input ng-model="invoice.address1.czip" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Country</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address1.ccountry" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Contact</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address1.ccontact" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Phone</label>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <input ng-model="invoice.address1.cphone" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Shipping Address</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                            <label class="control-label">Address #</label>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openAddressModal(2)" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                    <input ng-model="invoice.address2.caddrno" type="text" class="form-control" placeholder="Search address" aria-invalid="false">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Company</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address2.ccompany" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Address</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address2.caddr1" type="text" class="form-control" />
+                            <input ng-model="invoice.address2.caddr2" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">City</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address2.ccity" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                <label class="control-label">State</label>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input ng-model="invoice.address2.cstate" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                <label class="control-label">Zip</label>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input ng-model="invoice.address2.czip" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Country</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address2.ccountry" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Contact</label>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input ng-model="invoice.address2.ccontact" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                            <label class="control-label">Phone</label>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <input ng-model="invoice.address2.cphone" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12" style="padding-bottom: 30px;">
+        <div class="col-md-6 pull-right">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                    <label class="control-label pull-right">Sale Tax</label>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <button ng-click="openTaxModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                            <input ng-model="invoice.sales_tax.ctaxcode" type="text" class="form-control" name="" placeholder="Search sales tax">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <input ng-value="invoice.sales_tax.ntaxrate1 + '%'" type="text" class="form-control" readonly/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-include src="'modules/account_receivable/invoice/payment/SelectPaycodeModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/invoice/payment/SelectAddressModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/invoice/payment/SelectSaleTaxModal.html'"></ng-include>
+
+<!-- <div id="selectCardModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Paycode</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Paycode</th>
+                                    <th>Card No</th>
+                                    <th>Exp Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectCard(card)" ng-repeat='card in arcard_list' ng-show="invoice.customer.ccustno == card.ccustno">
+                                    <td>{{card.ccustno}}</td>
+                                    <td>{{card.cpaycode}}</td>
+                                    <td>{{card.ccardno}}</td>
+                                    <td>{{card.cexpdate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="selectSalexTaxModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Salex Tax</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Tax code</th>
+                                    <th>Description</th>
+                                    <th>Tax rate</th>
+                                    <th>For currency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectTax(tax)" ng-repeat='tax in costax_list'>
+                                    <td>{{tax.ctaxcode}}</td>
+                                    <td>{{tax.cdescript}}</td>
+                                    <td>{{tax.ntaxrate1}}</td>
+                                    <td>{{tax.currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->

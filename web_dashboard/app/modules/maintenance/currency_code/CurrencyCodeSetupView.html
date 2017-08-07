@@ -1,0 +1,162 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white">
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Currency Code Maintenance</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="saveCurrency()" ng-disabled="currency_form.$invalid || currency.id" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+                <button ng-click="deleteCurrency()" ng-disabled="!currency.id" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i>
+                    Delete
+                </button>
+                <button ng-click="updateCurrency()" ng-disabled="!currency.id" type="button" class="btn btn-primary" disabled>
+                    <i class="icon wb-refresh" aria-hidden="true" style="color: white;"></i>
+                    Update
+                </button>
+                <button ng-click="clearCurrencyForm()" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+                <select class="form-control" style="width: 200px; display: inline; margin-left: 20px;">
+                    <option>Currency Code</option>
+                </select>
+                <button type="button" class="btn btn-default" style="margin-left: 20px;" disabled>
+                    <i class="icon wb-chevron-left" aria-hidden="true"></i>
+                    First
+                </button>
+                <button type="button" class="btn btn-default" disabled>
+                    <i class="icon wb-chevron-left-mini" aria-hidden="true"></i>
+                    Prev
+                </button>
+                <button type="button" class="btn btn-default" disabled>
+                    Next
+                    <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-default" disabled>
+                    Last
+                    <i class="icon wb-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div class="page-content page-content-table">
+
+            <div class="col-md-4">
+                <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">&nbsp;</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="currency_form">
+                            <div class="form-group">
+                                <label class="control-label">Currency Code</label>
+                                <div class="input-search">
+                                    <button ng-click="openCurrencyCodeModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="currency.ccurrcode" type="text" class="form-control" placeholder="Currency Code" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Symbol</label>
+                                <input ng-model="currency.csymbol" type="text" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                                <input ng-model="currency.ccurrname" type="text" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Exchange Method</label>
+                                <input type="text" class="form-control" value="1 Unit of Home Currency = N Units of Foreign Currency" disabled />
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label class="control-label">Exchange Rate</label>
+                                    <input string-to-number ng-model="currency.nxchgrate" type="number" class="form-control" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Date</label>
+                                    <input ng-model="currency.dxchgrate" type="text" class="form-control" id="exchange_rate_date"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label class="control-label">Last Exchange Rate</label>
+                                    <input string-to-number ng-model="currency.nlxchgrate" type="text" class="form-control" disabled />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Date</label>
+                                    <input ng-model="currency.dlxchgrate" type="text" class="form-control" id="last_exchange_rate_date" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Exchange Gain/Loss</label>
+                                <div class="input-search">
+                                    <button type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="currency.cxchgacc" type="text" class="form-control" placeholder="A8952***-000" />
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- MODALS -->
+<div id="selectCurrencyCodeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Currency Code</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Currency Code</th>
+                                    <th>Description</th>
+                                    <th>Symbol</th>
+                                    <th>Exchange Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectCurrencyCode(ccode)" ng-repeat='ccode in currency_list'>
+                                    <td>{{ccode.ccurrcode}}</td>
+                                    <td>{{ccode.ccurrname}}</td>
+                                    <td>{{ccode.csymbol}}</td>
+                                    <td>{{ccode.nxchgrate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,347 @@
+<div class="page bg-white">
+    <!-- Forum Sidebar -->
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">My Groups</h5>
+                <!-- <a class="list-group-item" href="">
+                    <i class="icon wb-users" aria-hidden="true"></i>
+                    <span class="list-group-item-content">All</span>
+                </a>
+                <a class="list-group-item" href="">
+                    <i class="icon wb-folder" aria-hidden="true"></i>
+                    <span class="list-group-item-content">Admin</span>
+                </a> -->
+                <div class="list-group" >
+                    <a ng-click="selectGroupToShow(selected_smusergroup)" ng-repeat="selected_smusergroup in smusergroup_list" class="list-group-item" href="">
+                        <i class="icon wb-folder" aria-hidden="true"></i>
+                        <span class="list-group-item-content">{{selected_smusergroup.name}}</span>
+                    </a>
+                </div>
+            </section>
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">Actions</h5>
+                <div class="list-group">
+                    <a ng-click="openCreateGroupModal()" class="list-group-item" href="">
+                        <i class="icon wb-plus" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Add Group</span>
+                    </a>
+                    <a ng-click="openEditGroupModal()" class="list-group-item" href="">
+                        <i class="icon wb-edit" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Edit Group</span>
+                    </a>
+                    <a ng-click="openDeleteGroupModal()" class="list-group-item" href="">
+                        <i class="icon wb-close" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Delete Group</span>
+                    </a>
+                    <a ng-click="openCreateUserModal()" class="list-group-item" href="">
+                        <i class="icon wb-user-add" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Add User</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header">
+            <h1 class="page-title">User list</h1>
+            <form class="margin-top-20" role="search">
+                <div class="input-search input-search-dark">
+                    <input ng-model="user_search_query" type="text" class="form-control width-full" placeholder="Search by Name, Username and Created" name="" autofocus>
+                    <button type="button" class="input-search-btn">
+                        <i class="icon wb-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Forum Content -->
+        <div class="page-content page-content-table">
+            <table class="table is-indent">
+                <tbody>
+                    <tr ng-repeat="user in user_list_to_show | filter:user_search_query">
+                        <td class="pre-cell"></td>
+                        <td class="cell-60 responsive-hide">
+                            <a class="avatar" href="">
+                                <img class="img-responsive" src="assets/images/default-avatar.png" alt="...">
+                            </a>
+                        </td>
+                        <td>
+                            <div class="content">
+                                <div class="title">
+                                    {{user.name}}
+                                </div>
+                                <div class="metas">
+                                    <span>Username: {{user.username}},</span>
+                                    <span>Created: {{user.created}}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-80 forum-posts">
+                            <button ng-click="blockUser(user)" type="button" class="btn btn-floating btn-gray"><i class="icon" ng-class="{'wb-unlock': user.active == 0, 'wb-lock': user.active == 1}" aria-hidden="true"></i></button>
+                        </td>
+                        <td class="cell-80 forum-posts">
+                            <button ng-click="openEditUserModal(user)" type="button" class="btn btn-floating btn-warning"><i class="icon wb-edit" aria-hidden="true"></i></button>
+                        </td>
+                        <td class="cell-80 forum-posts">
+                            <button ng-click="deleteUser(user)" type="button" class="btn btn-floating btn-danger"><i class="icon wb-trash" aria-hidden="true"></i></button>
+                        </td>
+                        <td class="suf-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'modules/system_manager/usergroup/create/CreateUserGroupModal.html'"></ng-include>
+<ng-include src="'modules/system_manager/usergroup/edit/EditUserGroupModal.html'"></ng-include>
+<ng-include src="'modules/system_manager/usergroup/delete/DeleteUserGroupModal.html'"></ng-include>
+<ng-include src="'modules/system_manager/user/create/CreateUserModal.html'"></ng-include>
+<ng-include src="'modules/system_manager/user/edit/EditUserModal.html'"></ng-include>
+
+<!-- <div class="modal fade" id="editGroupModal" aria-hidden="true" aria-labelledby="addGroupModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Edit Group</h4>
+            </div>
+            <div class="modal-body container-fluid" style="padding-bottom: 0px;">
+                <form ng-submit="submitEditGroup()">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="group_name">Group to edit</label>
+                        <select ng-model="edit_selected_group" class="form-control">
+                            <option ng-repeat="group in edit_group_list" value="{{$index}}">{{group.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="group_name">Group name</label>
+                        <input ng-model="edit_group_list[edit_selected_group].name" type="text" class="form-control" id="group_name" name="group_name" placeholder="Group name, example: Workers" />
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="inputText"><strong>Auth modules</strong></label>
+
+                        <input ng-model="group_am_query" type="text" class="form-control" placeholder="Search by CODE, MODULE or NAME">
+                        <div class="table-responsive" style="height:250px; overflow:auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Code</th>
+                                        <th>Module</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="userRowClick(access_module)" ng-repeat="access_module in edit_group_list[edit_selected_group].modules | filter:group_am_query">
+                                        <td>
+                                            <input ng-click="userRowClick(access_module)" type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="access_module.status">
+                                        </td>
+                                        <td>{{access_module.code}}</td>
+                                        <td>{{access_module.module}}</td>
+                                        <td>{{access_module.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group form-material">
+                        <div class="col-md-6">
+                            <label class="control-label">Days</label>
+                            <div class="col-md-12" style="padding: 0px;">
+                                <div class="col-md-6">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_sun" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_sun">
+                                        <label for="day_sun">Sun</label>
+                                    </div>
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_mon" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_mon">
+                                        <label for="day_mon">Mon</label>
+                                    </div>
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_tue" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_tue">
+                                        <label for="day_tue">Tue</label>
+                                    </div>
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_wed" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_wed">
+                                        <label for="day_wed">Wed</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_thu" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_thu">
+                                        <label for="day_thu">Thu</label>
+                                    </div>
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_fri" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_fri">
+                                        <label for="day_fri">Fri</label>
+                                    </div>
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="day_sat" ng-true-value="'1'" ng-false-value="'0'" ng-model="edit_group_list[edit_selected_group].day_sat">
+                                        <label for="day_sat">Sat</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="inputText">Hour</label>
+                            <div class="col-md-12" style="padding: 0px;">
+                                <div class="col-md-6">
+                                    <div class="form-group form-material">
+                                        <label for="login_start">Start</label>
+                                        <input ng-model="edit_group_list[edit_selected_group].login_start" type="text" class="form-control" id="login_start" name="login_start" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-material">
+                                        <label for="login_end">End</label>
+                                        <input ng-model="edit_group_list[edit_selected_group].login_end" type="text" class="form-control" id="login_end" name="login_end" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn btn-block btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addUserModal" aria-hidden="true" aria-labelledby="addGroupModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Add User</h4>
+            </div>
+            <div class="modal-body container-fluid" style="padding-bottom: 0px;">
+                <form ng-submit="submitAddUserModal()">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_name">Full User name</label>
+                        <input ng-model="user.name" type="text" class="form-control" id="user_name" name="user_name" placeholder="Full user name, example: El Diego S. G.">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_username">User name</label>
+                        <input ng-model="user.username" type="text" class="form-control" id="user_username" name="user_username" placeholder="User name, example: diego">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_password">Password</label>
+                        <input ng-model="user.password" type="text" class="form-control" id="user_password" name="user_password" placeholder="User password, example: d13g0">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputText">Group</label>
+                        <select ng-model="user.selected_group" class="form-control">
+                            <option ng-repeat="group in group_list" value="{{$index}}">{{group.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="inputText"><strong>Auth modules</strong></label>
+
+                        <input ng-model="user_am_query" type="text" class="form-control" placeholder="Search by CODE, MODULE or NAME">
+                        <div class="table-responsive" style="height:250px; overflow:auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Code</th>
+                                        <th>Module</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="userRowClick(access_module)" ng-repeat="access_module in group_list[user.selected_group].modules | filter:user_am_query">
+                                        <td>
+                                            <input ng-click="userRowClick(access_module)" type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="access_module.status">
+                                        </td>
+                                        <td>{{access_module.code}}</td>
+                                        <td>{{access_module.module}}</td>
+                                        <td>{{access_module.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn btn-block btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editUserModal" aria-hidden="true" aria-labelledby="addGroupModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Edit User</h4>
+            </div>
+            <div class="modal-body container-fluid" style="padding-bottom: 0px;">
+                <form ng-submit="submitEditUserModal()">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_name">Full User name</label>
+                        <input ng-model="edit_user.name" type="text" class="form-control" id="user_name" name="user_name" placeholder="Full user name, example: El Diego S. G.">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_username">User name</label>
+                        <input ng-model="edit_user.username" type="text" class="form-control" id="user_username" name="user_username" placeholder="User name, example: diego">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_password">Password</label>
+                        <input ng-model="edit_user.password" type="text" class="form-control" id="user_password" name="user_password" placeholder="User password, example: d13g0">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="inputText"><strong>Auth modules</strong></label>
+
+                        <input ng-model="user_am_query" type="text" class="form-control" placeholder="Search by CODE, MODULE or NAME">
+                        <div class="table-responsive" style="height:250px; overflow:auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Code</th>
+                                        <th>Module</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="userRowClick(access_module)" ng-repeat="access_module in edit_user.auth_modules | filter:user_am_query">
+                                        <td>
+                                            <input ng-click="userRowClick(access_module)" type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="access_module.status">
+                                        </td>
+                                        <td>{{access_module.code}}</td>
+                                        <td>{{access_module.module}}</td>
+                                        <td>{{access_module.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn btn-block btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

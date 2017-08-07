@@ -1,0 +1,176 @@
+<div class="page-content page-content-table">
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Period End-Closing</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material row">
+                    <div class="col-sm-6">
+                        <label class="control-label" for="inputEmail">Start</label>
+                        <input ng-model="arsyst.start_range" id="start_range" type="text" class="form-control" placeholder="00/00/000" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="control-label" for="inputEmail">End</label>
+                        <input ng-model="arsyst.end_range" id="end_range" type="text" class="form-control" placeholder="00/00/000" />
+                    </div>
+                </div>
+                <div class="form-group form-material row">
+                    <div class="col-sm-6">
+                        <label class="control-label" for="purge_invoices_dates">Purge Invoices with dates before</label>
+                        <input ng-model="arsyst.purge_invoices_dates" type="text" class="form-control" id="purge_invoices_dates" name="purge_invoices_dates" placeholder="00/00/000" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="control-label" for="purge_payments_dates">Purge Payments with dates before</label>
+                        <input ng-model="arsyst.purge_payments_dates" type="text" class="form-control" id="purge_payments_dates" name="purge_payments_dates" placeholder="00/00/000" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Decimal Places</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail">Unit Cost</label>
+                    <input ng-model="arsyst.unit_cost" string-to-number min="0" type="number" class="form-control" placeholder="10" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail">Unit Price</label>
+                    <input ng-model="arsyst.unit_price" string-to-number min="0" type="number" class="form-control" placeholder="200" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail">Quantity</label>
+                    <input ng-model="arsyst.quantity" string-to-number min="0" type="number" class="form-control" placeholder="3" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="input-search clearfix">
+<input type="text" class="form-control" id="ship_via" placeholder="Search...">
+<button type="button" class="input-search-btn">
+<i class="icon wb-search" aria-hidden="true"></i>
+</button>
+</div> -->
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Invoice Transactions</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail"><strong>Ship Via</strong></label>
+                    <div>
+                        <label>{{arsyst.arfrgt.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.arfrgt" ng-options="arfrgt.description for arfrgt in arfrgt_list" id="ship_via" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail"><strong>F.O.B.</strong></label>
+                    <div>
+                        <label>{{arsyst.arfob.code}} - {{arsyst.arfob.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.arfob" ng-options="arfob.description for arfob in arfob_list" id="fob" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail">Next Invoice</label>
+                    <input ng-model="arsyst.next_invoice" string-to-number min="0" type="number" class="form-control" placeholder="XXXXXXX" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inputEmail">Next receipt #</label>
+                    <input ng-model="arsyst.crcptno" string-to-number min="0" type="number" class="form-control" placeholder="#" />
+                </div>
+                <div class="form-group form-material">
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.usgi" ng-checked="arsyst.usgi" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="usgi" checked>
+                        <label for="usgi">Use system generated Invoice #</label>
+                    </div>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.atelc" ng-checked="arsyst.atelc" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="atelc">
+                        <label for="atelc">Allow to exceed limit credit</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Aging Range</h3>
+            </div>
+            <div class="panel-body">
+                <label><strong>Dates</strong></label>
+                <form class="form-inline">
+                    <div class="form-group form-material row">
+                        <div class="col-sm-3">
+                            <input ng-model="arsyst.anging_range_date_1" string-to-number min="0" type="number" class="form-control" style="width: 100%;" placeholder="date 1" />
+                        </div>
+                        <div class="col-sm-3">
+                            <input ng-model="arsyst.anging_range_date_2" string-to-number min="0" type="number" class="form-control" style="width: 100%;" placeholder="date 2" />
+                        </div>
+                        <div class="col-sm-3">
+                            <input ng-model="arsyst.anging_range_date_3" string-to-number min="0" type="number" class="form-control" style="width: 100%;" placeholder="date 3" />
+                        </div>
+                        <div class="col-sm-3">
+                            <input ng-model="arsyst.anging_range_date_4" string-to-number min="0" type="number" class="form-control" style="width: 100%;" placeholder="date 4" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Copy Options for Invoice Line Items</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.idescription" ng-checked="arsyst.idescription" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="idescription">
+                        <label for="idescription">Item Description</label>
+                    </div>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.dpercentage" ng-checked="arsyst.dpercentage" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="dpercentage">
+                        <label for="dpercentage">Discount %</label>
+                    </div>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.uprice" ng-checked="arsyst.uprice" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="uprice">
+                        <label for="uprice">Unit Price</label>
+                    </div>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.remark" ng-checked="arsyst.remark" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="remark">
+                        <label for="remark">Remark</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Extras</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.cfcbw" ng-checked="arsyst.cfcbw" ng-true-value="'1'" ng-false-value="'0'" type="checkbox" id="cfcbw" checked>
+                        <label for="cfcbw">Calculate Freight Charge by Weight</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<dir class="row" style="text-align: center;">
+    <button ng-click="updateArsystSettingsGeneral1()" class="btn btn-lg btn-success">Update</button>
+</div>

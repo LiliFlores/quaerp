@@ -1,0 +1,305 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Settings</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Status</label>
+                            <select
+                                ng-model="inventory.cstatus" ng-selected="inventory.item.cstatus == inv_status.status"
+                                ng-options="inv_status.status as inv_status.description for inv_status in inventory_status_list"
+                                class="form-control"></select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Commission</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button type="button" class="input-search-btn"><i class="icon wb-search" disabled></i></button>
+                                    <input ng-model="inventory.item.comission" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Max. Discount %</label>
+                            <input string-to-number format="number" ng-model="inventory.item.ndiscrate" type="text" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Weight</label>
+                            <input type="text" format="number" ng-model="inventory.item.nweight" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Qty Decimals</label>
+                             <input string-to-number ng-model="inventory.item.nqtydec" type="number" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Cost Method</label>
+                             <select
+                                ng-model="inventory.ccost" ng-selected="inventory.item.ncosttype == inv_cost.cost "
+                                ng-options="inv_cost.cost as inv_cost.description for inv_cost in inventory_cost_list"
+                                class="form-control"></select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Standard Cost</label>
+                            <input format="number" ng-model="inventory.item.nstdcost" type="text" class="form-control">
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Return Cost</label>
+                             <input format="number" ng-model="inventory.item.nrtrncost" type="text" class="form-control">
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <!-- <div class="col-md-12" style="padding-right: 0px;">-->
+                                <label class="control-label">Last Received Cost</label>
+                                  <input  ng-model="inventory.item.nrtrncost" type="text" class="form-control" readonly/>
+                            <!-- </div>
+                          <!--  <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">&nbsp;</label>
+                                <input  type="text" class="form-control"  readonly/>
+                            </div>
+                            -->
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                              <!--<div class="col-md-12" style="padding-right: 0px;">-->
+                                <label class="control-label">Last Finished Cost</label>
+                                  <input  ng-model="inventory.item.nlfnhcost" type="text" class="form-control" readonly/>
+                            <!-- </div>
+                            <!--  <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">&nbsp;</label>
+                                <input  type="text" class="form-control"  readonly/>
+                            </div>
+                            -->
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                              <!--<div class="col-md-12" style="padding-right: 0px;">-->
+                                <label class="control-label">Last Sale Price</label>
+                                  <input  ng-model="inventory.item.nlsalprice" type="text" class="form-control" readonly/>
+                            <!-- </div>
+                              <!--  <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">&nbsp;</label>
+                                <input  type="text" class="form-control"  readonly/>
+                            </div>
+                            -->
+                        </div>
+						<div style="padding-bottom: 15px;">
+                              <!--<div class="col-md-12" style="padding-right: 0px;">-->
+                                <label class="control-label">Last Reapir Cost</label>
+                                  <input  ng-model="inventory.item.nlsalprice" type="text" class="form-control" readonly/>
+                            <!-- </div>
+                              <!--  <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">&nbsp;</label>
+                                <input  type="text" class="form-control"  readonly/>
+                            </div>
+                            -->
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Unit Price</label>
+                            <input ng-model="inventory.item.nprice" format="number" type="text" class="form-control">
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Average Cost</label>
+                             <input  type="text" format="number" class="form-control">
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                             <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">Profit Margin</label>
+                                  <input  ng-model="" type="text" class="form-control" readonly/>
+                            </div>
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">&nbsp;</label>
+                                <input  type="text" class="form-control"  readonly/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="checkbox-custom checkbox-primary">
+                            <input ng-true-value="'YES'" ng-false-value="'NO'"  ng-checked="inventory.item.lchkonhand == '1'" ng-model="inventory.item.lchkonhand" type="checkbox"  >
+                            <label for="check1">Check On-hand</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lupdonhand == '1'" ng-model="inventory.item.lupdonhand" type="checkbox" >
+                            <label for="check2">Update On-hand</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input  type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lnegprice == '1'"  ng-model="inventory.item.lnegprice">
+                            <label for="check3">Allow Negative Price</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lallowneg == '1'" ng-model="inventory.item.lallowneg" type="checkbox" id="check4" >
+                            <label for="check4">Allow Negative Qty on Invoice</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.ldiscard == '1'"  ng-model="inventory.item.ldiscard" disabled>
+                            <label for="check5">Allow Discarding</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lrepair == '1'"  ng-model="inventory.item.lrepair" disabled>
+                            <label for="check6">Allow Reparing</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lprtsn == '1'"  ng-model="inventory.item.lprt" disabled>
+                            <label for="check7">Print Serial # on Invoice<label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.ltaxable1 == '1'" ng-model="inventory.item.ltaxable1" >
+                            <label for="check8">Taxable</label>
+                        </div>
+                          <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Lot Control</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group form-material">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.llot == '1'"  ng-model="inventory.item.llot">
+                                            <label for="r1">Use Lot Control</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lprtlono == '1'"  ng-model="inventory.item.lprtlono" >
+                                            <label for="r1">Print Lot # on Invoice</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                         </div>
+                          <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Kitting</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group form-material">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="checkbox" >
+                                            <label for="r1">Kit Item</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lusekitno == '1'"  ng-model="inventory.item.lusekitno" >
+                                            <label for="r1">Use Kit #</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Maximum Price Type</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group form-material">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="r1" name="inputRadios" checked disabled>
+                                            <label for="r1">Percentgae Above Cost</label>
+                                            <input  type="text" class="form-control"  readonly/>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="r2" name="inputRadios" disabled>
+                                            <label for="r2">Fixed Amt Above Cost</label>
+                                            <input  type="text" class="form-control"  readonly/>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="r2" name="inputRadios" disabled>
+                                            <label for="r2">Fixed Amount</label>
+                                            <input  type="text" class="form-control"  readonly/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Allow Overwrite</h3>
+                            </div>
+                            <div class="panel-body">
+                            
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowdesc == '1'" ng-model="inventory.item.lowdesc" >
+                                    <label for="check9">Description</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowprice == '1'" ng-model="inventory.item.lowprice">
+                                    <label for="check10">Price</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowtax == '1'" ng-model="inventory.item.lowtax">
+                                    <label for="check5">Tax Status</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowweight == '1'" ng-model="inventory.item.lowweight">
+                                    <label for="check11">Weigth</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowdisc == '1'" ng-model="inventory.item.lowdisc">
+                                    <label for="check12">Discount %</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox"  ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowrevncd == '1'" ng-model="inventory.item.lowrevncd">
+                                    <label for="check13">Revenue Code</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="check14" disabled="">
+                                    <label for="check14">Kit Components</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lowcoms == '1'"  ng-model="inventory.item.lowcoms" type="checkbox">
+                                    <label>Comission In Transaction</label>
+                                    <label for="check15">Kit Components</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Item Specification</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="check5">
+                                    <label for="check5">Use Specification</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <label class="control-label">Spec. Type 1</label>
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                            <input ng-model="inventory.item.cspectype1" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <label class="control-label">Spec. Type 2</label>
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                            <input  ng-model="inventory.item.cspectype2" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="form-control" disabled=""> Setup Spec.</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<ng-include src="'modules/maintenance/inventory/settings/SelectRevenueModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/settings/SelectPaycodeModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/settings/SelectCurrencyModal.html'"></ng-include>

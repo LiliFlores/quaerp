@@ -1,0 +1,87 @@
+<div class="modal fade" id="CreateUserModal" ng-controller="CreateUserController" aria-hidden="true" aria-labelledby="addGroupModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Create User</h4>
+            </div>
+            <div class="modal-body container-fluid" style="padding-bottom: 0px;">
+                <form ng-submit="submitCreateUser()">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_name">Full User name</label>
+                        <input ng-model="user_add_form.name" type="text" class="form-control" id="user_name" name="user_name" placeholder="Full user name, example: El Diego S. G.">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_username">User name</label>
+                        <input ng-model="user_add_form.username" type="text" class="form-control" id="user_username" name="user_username" placeholder="User name, example: diego">
+                    </div>
+                    <div class="form-group form-material">
+                        <label class="control-label" for="user_password">Password</label>
+                        <input ng-model="user_add_form.password" type="text" class="form-control" id="user_password" name="user_password" placeholder="User password, example: d13g0">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputText">Group</label>
+                        <select ng-model="user_add_form.selected_group" ng-change="loadUserGroupsModules()" ng-options="usergroup.name for usergroup in user_add_form.usergroup_list" class="form-control">
+                        </select>
+                    </div>
+                    <div class="form-group form-material col-md-6">
+                        <label class="control-label" for="inputText"><strong>Companies</strong></label>
+
+                        <input ng-model="company_search_query" type="text" class="form-control" placeholder="Search by ID or NAME">
+                        <div class="table-responsive" style="height:250px; overflow:auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="selectCompany(company)" ng-repeat="company in user_add_form.company_list | filter:company_search_query" style="cursor: pointer">
+                                        <td>{{company.cid}}</td>
+                                        <td>{{company.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group form-material col-md-6">
+                        <label class="control-label" for="inputText">
+                            <strong>Auth modules</strong>
+                            <strong ng-show="selected_company">for: <u>{{selected_company.name}}</u></strong>
+                        </label>
+
+                        <input ng-model="group_search_query" type="text" class="form-control" placeholder="Search by CODE, MODULE or NAME">
+                        <div class="table-responsive" style="height:250px; overflow:auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Code</th>
+                                        <th>Module</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="rowClick(module)" ng-repeat="module in selected_company.modules | filter:group_search_query" style="cursor: pointer">
+                                        <td>
+                                            <input ng-click="rowClick(module)" type="checkbox" ng-model="module.selected">
+                                        </td>
+                                        <td>{{module.code}}</td>
+                                        <td>{{module.module}}</td>
+                                        <td>{{module.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                            <button type="submit" ng-disabled="!user_add_form.company_list || !user_add_form.selected_group || !user_add_form.usergroup_list" class="btn btn-block btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

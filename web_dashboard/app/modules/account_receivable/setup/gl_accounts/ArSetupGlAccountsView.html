@@ -1,0 +1,177 @@
+<div class="page-content page-content-table">
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Asset Accounts</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="account_receivables"><strong>Account Receivables</strong></label>
+                    <div>
+                        <label>{{arsyst.account_receivables.catgid}} - {{arsyst.account_receivables.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.account_receivables" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="account_receivables" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inventory_stock"><strong>Inventory (Stock)</strong></label>
+                    <div>
+                        <label>{{arsyst.inventory_stock.catgid}} - {{arsyst.inventory_stock.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.inventory_stock" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="inventory_stock" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="inventory_non_stock"><strong>Inventory Non-Stock</strong></label>
+                    <div>
+                        <label>{{arsyst.inventory_non_stock.catgid}} - {{arsyst.inventory_non_stock.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.inventory_non_stock" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="inventory_non_stock" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liability Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="customer_deposits"><strong>Customer Deposits</strong></label>
+                    <div>
+                        <label>{{arsyst.customer_deposits.catgid}} - {{arsyst.customer_deposits.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.customer_deposits" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="customer_deposits" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="open_credit_refunds"><strong>Open Credit Refunds</strong></label>
+                    <div>
+                        <label>{{arsyst.open_credit_refunds.catgid}} - {{arsyst.open_credit_refunds.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.open_credit_refunds" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="open_credit_refunds" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="sales_taxes_payables"><strong>Sales Taxes Payables</strong></label>
+                    <div>
+                        <label>{{arsyst.sales_taxes_payables.catgid}} - {{arsyst.sales_taxes_payables.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.sales_taxes_payables" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="sales_taxes_payables" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Revenue Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="invoice_adjustaments"><strong>Invoice Adjustaments</strong></label>
+                    <div>
+                        <label>{{arsyst.invoice_adjustaments.catgid}} - {{arsyst.invoice_adjustaments.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.invoice_adjustaments" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="invoice_adjustaments" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="freight_revenue"><strong>Freight Revenue</strong></label>
+                    <div>
+                        <label>{{arsyst.freight_revenue.catgid}} - {{arsyst.freight_revenue.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.freight_revenue" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="freight_revenue" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="interest_income"><strong>Interest Income</strong></label>
+                    <div>
+                        <label>{{arsyst.interest_income.catgid}} - {{arsyst.interest_income.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.interest_income" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="interest_income" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cost of Sales Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="cost_of_variances"><strong>Cost of Variances</strong></label>
+                    <div>
+                        <label>{{arsyst.cost_of_variances.catgid}} - {{arsyst.cost_of_variances.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.cost_of_variances" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="cost_of_variances" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Assets / Cost of Sales Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="inventory_adjustements"><strong>Inventory Adjustements</strong></label>
+                    <div>
+                        <label>{{arsyst.inventory_adjustements.catgid}} - {{arsyst.inventory_adjustements.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.inventory_adjustements" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="inventory_adjustements" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Expense Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="payment_term_discount"><strong>Payment Term Discount</strong></label>
+                    <div>
+                        <label>{{arsyst.payment_term_discount.catgid}} - {{arsyst.payment_term_discount.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.payment_term_discount" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="payment_term_discount" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="payment_adjustements"><strong>Payment Adjustements</strong></label>
+                    <div>
+                        <label>{{arsyst.payment_adjustements.catgid}} - {{arsyst.payment_adjustements.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.payment_adjustements" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="payment_adjustements" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="bad_deb_expense"><strong>Bad Deb Expense</strong></label>
+                    <div>
+                        <label>{{arsyst.bad_deb_expense.catgid}} - {{arsyst.bad_deb_expense.description}}</label>
+                    </div>
+                    <select ng-model="arsyst.bad_deb_expense" ng-options="(glaccounts.catgid + ' - ' + glaccounts.description) for glaccounts in glaccounts_list" id="bad_deb_expense" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<dir class="row" style="text-align: center;">
+    <button ng-click="updateArsystSettingsGlAccounts()" class="btn btn-lg btn-success">Update</button>
+</div>

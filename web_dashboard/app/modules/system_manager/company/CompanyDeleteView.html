@@ -1,0 +1,34 @@
+<div class="page">
+    <div class="page-header page-header-bordered">
+        <h1 class="page-title">{{page_title}}</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="dashboard">Panel</a>
+            </li>
+            <li class="active">{{page_title}}</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel">
+                    <div class="panel-body container-fluid">
+                        <form ng-submit="deleteCompany()" autocomplete="off">
+                            <h2>Select Company to Delete</h2>
+                            <div class="form-group form-material">
+                                <select ng-model="selected_company_to_delete" ng-options="company.name for company in company_list" class="form-control">
+                                </select>
+                            </div>
+
+                            <div class="form-group form-material row">
+                                <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                                    <button ng-disabled="!selected_company_to_delete.id" type="submit" class="btn btn-block btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

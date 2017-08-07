@@ -1,0 +1,360 @@
+<style>
+    @media print {
+        * {
+            visibility: hidden;
+        }
+        #invoice_preview,
+        #invoice_preview * {
+            visibility: visible;
+            font-size: small;
+        }
+        #invoice_preview {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+        }
+    }
+
+    .col-print-1 {
+        width: 8%;
+        float: left;
+    }
+
+    .col-print-2 {
+        width: 16%;
+        float: left;
+    }
+
+    .col-print-3 {
+        width: 25%;
+        float: left;
+    }
+
+    .col-print-4 {
+        width: 33%;
+        float: left;
+    }
+
+    .col-print-5 {
+        width: 42%;
+        float: left;
+    }
+
+    .col-print-6 {
+        width: 50%;
+        float: left;
+    }
+
+    .col-print-7 {
+        width: 58%;
+        float: left;
+    }
+
+    .col-print-8 {
+        width: 66%;
+        float: left;
+    }
+
+    .col-print-9 {
+        width: 75%;
+        float: left;
+    }
+
+    .col-print-10 {
+        width: 83%;
+        float: left;
+    }
+
+    .col-print-11 {
+        width: 92%;
+        float: left;
+    }
+
+    .col-print-12 {
+        width: 100%;
+        float: left;
+    }
+
+    .cborder-bottom {
+        border-style: solid;
+        border-top-style: none;
+        border-left-style: none;
+        border-right-style: none;
+        border-bottom-style: groove;
+    }
+
+    .table-borderless tbody tr td,
+    .table-borderless tbody tr th,
+    .table-borderless thead tr th,
+    .table-borderless thead tr td,
+    .table-borderless tfoot tr th,
+    .table-borderless tfoot tr td {
+        border: none;
+    }
+</style>
+
+<div class="panel" id="invoice_preview">
+    <div class="panel-body container-fluid">
+        <div class="row">
+            <div class="col-md-6 pull-left">
+                <h5> {{syst_selected_company.name}} </h5>
+                <h5> {{syst_selected_company.address}}</h5>
+                <h5> {{syst_selected_company.city}}, {{syst_selected_company.state}} {{syst_selected_company.zip}}</h5>
+
+                <h5 style="padding-top: 10px;"> <strong>Telephone:</strong> {{syst_selected_company.phone}}</h5>
+                <h5> <strong>Warehouse:</strong> Main</h5>
+
+            </div>
+            <div class="col-md-6 pull-right" style="text-align: center;">
+                <h1 style="font-size: xx-large;"> Invoice </h1>
+
+                <table class="table table-bordered text-right">
+                    <tbody>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Invoice No.
+                            </td>
+                            <td>
+                                {{invoice.cinvno}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Customer No.
+                            </td>
+                            <td>
+                                {{invoice.customer.ccustno}}5
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="padding-top: 15px;">
+            <div class="col-print-6">
+                <div style="padding-left: 5%; padding-right: 5%;">
+                    <h3 align="center" class="cborder-bottom" style="font-size: large;">Bill To:</h3>
+                </div>
+                <div style="text-align: left; padding-left: 5%;">
+                    <h5>{{invoice.address1.ccompany}}</h5>
+                    <h5>{{invoice.address1.caddr1}}</h5>
+                    <h5>{{invoice.address1.ccity}}, {{invoice.address1.cstate}} {{invoice.address1.czip}}</h5>
+                    <h5><strong>Telephone:</strong> {{invoice.address1.cphone}}</h5>
+                    <h5><strong>Warehouse:</strong> {{invoice.arwhse.cwarehouse}}</h5>
+                </div>
+            </div>
+            <div class="col-print-6">
+                <div style="padding-left: 5%; padding-right: 5%;">
+                    <h3 align="center" class="cborder-bottom" style="font-size: large;">Ship To:</h3>
+                </div>
+                <div style="text-align: left; padding-left: 5%;">
+                    <h5>{{invoice.address2.ccompany}}</h5>
+                    <h5>{{invoice.address2.caddr1}}</h5>
+                    <h5>{{invoice.address2.ccity}}, {{invoice.address2.cstate}} {{invoice.address2.czip}}</h5>
+                    <h5><strong>Telephone:</strong> {{invoice.address2.cphone}}</h5>
+                    <h5><strong>Warehouse:</strong> {{invoice.arwhse.cwarehouse}}</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" style="padding-top: 20px;">
+            <table class="table table-bordered text-right" style="margin-bottom: 0px;">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Ship Via</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">F.O.B.</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Terms</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Sidemark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: left;">
+                        <td>
+                            {{invoice.ship_via.description}}
+                        </td>
+                        <td>
+                            {{invoice.fob.description}}
+                        </td>
+                        <td>
+                            {{invoice.customer.cpaycode}}
+                        </td>
+                        <td>
+                            {{invoice.sidemarkno}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered text-right">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Invoice Date</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Order Date</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">SO #</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">PO #</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Resale #</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: left;">
+                        <td>
+                            {{invoice.dinvoice}}
+                        </td>
+                        <td>
+                            {{invoice.dorder}}
+                        </td>
+                        <td>
+                            {{invoice.sono}}
+                        </td>
+                        <td>
+                            {{invoice.cpono}}
+                        </td>
+                        <td>
+                            {{invoice.cresaleno}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-hover text-right">
+                <thead>
+                    <tr>
+                        <th style="width: 100px; text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Order Quantity</th>
+                        <th style="width: 120px; text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Shipped Quantity</th>
+                        <th style="width: 30px; text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Tax</th>
+                        <th style="text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Item Number / Description</th>
+                        <th style="width: 80px; text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Unit Price</th>
+                        <th style="width: 110px; text-align: center; background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">Extended Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in invoice.items" style="text-align: left;">
+                        <th style="text-align: center;">
+                            {{item.shipqty}}
+                        </td>
+                        <th style="text-align: center;">
+                            {{item.shipqty}}
+                        </td>
+                        <th style="text-align: center;">
+                            Y
+                        </td>
+                        <th class="ccells">
+                            {{item.citemno}} / {{item.cdescript}}
+                        </td>
+                        <th style="text-align: center;">
+                            {{item.nprice}}
+                        </td>
+                        <th style="text-align: center;">
+                            {{((item.shipqty * item.nprice) - ((item.shipqty * item.nprice) * (item.discount / 100))).toFixed(2)}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-12" style="padding-top: 20px;">
+            <div class="col-print-4">
+                <table class="table table-hover table-borderless text-right" style="width: 80%;">
+                    <tbody>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Print Date
+                            </td>
+                            <td>
+                                00/00/0000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Print Time
+                            </td>
+                            <td>
+                                00:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Page #
+                            </td>
+                            <td>
+                                00
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-print-4">
+                &nbsp;
+                <!-- <table class="table table-hover table-borderless text-right borderless" style="width: 80%;">
+                    <tbody>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Total Paid
+                            </td>
+                            <td>
+                                $00.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Balance Due
+                            </td>
+                            <td>
+                                $00.00
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+            <div class="col-print-4">
+                <table class="table table-hover table-borderless text-right borderless pull-right" style="width: 50%;">
+                    <tbody>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact; vertical-align: bottom;">
+                                Subtotal
+                            </td>
+                            <td style="width: 110px;">
+                                <h5>{{invoice.subtotal}}</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact; vertical-align: bottom;">
+                                Discount
+                            </td>
+                            <td>
+                                <h5>- {{invoice.total_discount}}</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Tax
+                            </td>
+                            <td>
+                                {{invoice.overwrite_sales_tax}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Freight
+                            </td>
+                            <td>
+                                {{invoice.freight}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: ghostwhite !important; -webkit-print-color-adjust: exact;">
+                                Total Invoice
+                            </td>
+                            <td>
+                                {{invoice.total}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>

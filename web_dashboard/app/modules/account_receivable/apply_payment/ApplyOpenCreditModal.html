@@ -1,0 +1,56 @@
+<div id="ApplyOpenCreditModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Apply Open Credit</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Trs Date</th>
+                                    <th>Type</th>
+                                    <th>Inv/Rcpt #</th>
+                                    <th>P.O. # / Pay Ref.</th>
+                                    <th>Amount</th>
+                                    <th>Open Credit</th>
+                                    <th>Apply Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-if="cash.ccustno == payment_form.ccustno && (cash.npaidamt - cash.nappamt) != 0" ng-repeat='cash in cash_list'>
+                                    <td>{{cash.created}}</td>
+                                    <td>Payment</td>
+                                    <td>{{cash.crcptno}}</td>
+                                    <td></td>
+                                    <td>{{cash.npaidamt}}</td>
+                                    <td>{{cash.npaidamt - cash.nappamt}}</td>
+                                    <td>
+                                        <input ng-change="calculateApplyOpenCredit()" ng-model="cash.apply_amount" class="form-control" type="text" decimal-places></input>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><b>Total</b></td>
+                                    <td>{{totals.open_credit}}</td>
+                                    <td>{{totals.apply_open_credit}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

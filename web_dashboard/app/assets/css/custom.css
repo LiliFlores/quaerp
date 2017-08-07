@@ -1,0 +1,38 @@
+.fix-menu-buttons {
+    padding-top: 27px;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: -4px;
+}
+
+.btn-gray {
+    color: #fff;
+    background-color: #999999;
+    border-color: #999999;
+}
+
+.btn-gray:hover {
+    color: #fff;
+    background-color: #aaaaaa;
+    border-color: #aaaaaa;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+md-content.md-default-theme, md-content {
+    background-color: white;
+}
+
+/*#DataTables_Table_0_filter {
+    display: none;
+}*/

@@ -1,0 +1,44 @@
+<div id="SelectBuyerModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Buyer Search</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="col-md-8">
+                   <div class="form-group row">
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">Class</label>
+                                <input  ng-model="inventory.class" type="text" class="form-control" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr ng-class="{selectRow : buyer.code == inventory.item.cbuyer}" ng-click="selectBuyer(buyer)" ng-repeat='buyer in buyer_list'>
+                                    <td>{{buyer.code}}</td>
+                                    <td>{{buyer.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

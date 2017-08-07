@@ -1,0 +1,14 @@
+*,ACC1,    185382,          ,5626555-1,U ,12/02/2016,SO# 406529, Smk:8322424729
+ACC1,    185382,A5036A,A-2"Wood Blinds           VintageDusk7  70.5x 48.4  &Val=U,0.00,1,142.00
+*,ACC1,    185383,          ,5644482-1,A ,12/02/2016,SO# 407055, Smk:9492914251
+ACC1,    185383,A3000B,A-2"Wood Blinds           RedMahogany1  50.0x 99.4  &Val=1,0.00,4,125.00
+ACC1,    185383,FRG,*2nd Day ,0,4,25.00
+*,ACC1,    185384,          ,5645492-1,U ,12/02/2016,SO# 407095, Smk:7347898801
+ACC1,    185384,A5112A,A-2"Wood Blinds           CottageGrayS  32.6x 56.4  &Val=1,0.00,2,94.30
+*,ACC1,    185385,          ,5649778-1,U ,12/02/2016,SO# 407397, Smk:7135304861
+ACC1,    185385,A1002B,A-2"Wood Blinds           Oak114A       33.4x 61.2  &Val=U,0.00,2,57.00
+*,ACC1,    185386,          ,4182628,U ,12/02/2016,SO# 407635, Smk:304-723-4464
+ACC1,    185386,B4050B,B-1"Wood Blinds            White.       33.2x 52.2  &Val=S,0.00,2,63.00
+ACC1,    185386,B4050B,B-1"Wood Blinds            White.       27.2x 52.2  &Val=S,0.00,5,55.00
+ACC1,    185386,B4050B,B-1"Wood Blinds            White.       54.0x 50.2  &Val=S,0.00,1,89.00
+ACC1,    185386,B4050B,B-1"Wood Blinds            White.       36.2x 38.6  &Val=S,0.00,1,63.00

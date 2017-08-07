@@ -1,0 +1,520 @@
+<div>
+    <!-- Navbar -->
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+
+        <div class="navbar-header" style="height: 71px;">
+            <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="hamburger-bar"></span>
+        </button>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
+            <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+        </button>
+            <div ui-sref="dashboard" class="navbar-brand navbar-brand-center ">
+                <span class="navbar-brand-text">QUAERP</span>
+            </div>
+        </div>
+
+        <div class="navbar-container container-fluid">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                <!-- Navbar Toolbar -->
+                <ul class="nav navbar-toolbar">
+                    <li class="hidden-float" id="toggleMenubar">
+                        <a data-toggle="menubar" href="" role="button" style="padding-top: 27px;">
+                            <i class="icon hamburger hamburger-arrow-left">
+                            <span class="sr-only">Toggle menubar</span>
+                            <span class="hamburger-bar"></span>
+                        </i>
+                        </a>
+                    </li>
+                    <li class="hidden-xs" id="toggleFullscreen">
+                        <a class="icon icon-fullscreen" data-toggle="fullscreen" href="" role="button" style="padding-top: 27px;">
+                            <span class="sr-only">Toggle fullscreen</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a ng-click="showApiLog()" data-toggle="dropdown" href="javascript:void(0)" aria-expanded="true" role="button" style="height: 71px;">
+                            <i class="icon wb-time" aria-hidden="true"></i>
+                            <b>API: {{api_version_log.date}}</b>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a ng-click="showDashboardLog()" data-toggle="dropdown" href="javascript:void(0)" aria-expanded="true" role="button" style="height: 71px;">
+                            <i class="icon wb-time" aria-hidden="true"></i>
+                            <b>DASHBOARD: {{dashboard_version_log.date}}</b>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar -->
+
+                <!-- Navbar Toolbar Right -->
+                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="true" data-animation="slide-bottom" role="button" style="height: 71px;">
+                            <i class="icon wb-settings" aria-hidden="true"></i>
+                            <b ng-show="!syst_selected_module.code">Select a module</b>
+                            <b ng-show="syst_selected_module.code">{{syst_selected_module.name}}</b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-click="selectModule(syst_module)" ng-repeat="syst_module in syst_module_list" role="presentation">
+                                <a href="" role="menuitem">
+                                    <span>{{syst_module.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="true" data-animation="slide-bottom" role="button" style="height: 71px;">
+                            <i class="icon wb-briefcase" aria-hidden="true"></i>
+                            <b ng-show="!syst_selected_company.id">Select a company</b>
+                            <b ng-show="syst_selected_company.id">{{syst_selected_company.name}}</b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-click="selectCompany(company)" ng-repeat="company in company_list" role="presentation">
+                                <a href="" role="menuitem">
+                                    <span>{{company.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <!-- <a class="" data-toggle="dropdown" href="" aria-expanded="false"role="button"> -->
+                        <!-- </a> -->
+                        <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="" aria-expanded="false" data-animation="slide-bottom" role="button" style="height: 71px;">
+                            <span class="avatar avatar-online">
+                                <img src="assets/images/default_avatar.png" alt="...">
+                                <i></i>
+                            </span>
+                            <strong>{{$root.logged_user.name}}</strong>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation">
+                                <a ui-sref="sm_company_create" role="menuitem">
+                                    <i class="icon wb-home" aria-hidden="true"></i>
+                                    <span>Company</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a ui-sref="sm_company_edit" role="menuitem">
+                                    <i class="icon wb-edit" aria-hidden="true"></i>
+                                    <span>Edit Company</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a ui-sref="sm_company_delete" role="menuitem">
+                                    <i class="icon wb-close" aria-hidden="true"></i>
+                                    <span>Delete Company</span>
+                                </a>
+                            </li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation">
+                                <a ui-sref="ar_setup" role="menuitem">
+                                    <i class="icon wb-settings" aria-hidden="true"></i>
+                                    <span>AR Module Setup</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a ui-sref="group_setup" role="menuitem">
+                                    <i class="icon wb-users" aria-hidden="true"></i>
+                                    <span>Create Group</span>
+                                </a>
+                            </li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation">
+                                <a ui-sref="login" ng-click="logout()" role="menuitem">
+                                    <i class="icon wb-power" aria-hidden="true"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar Right -->
+            </div>
+            <!-- End Navbar Collapse -->
+        </div>
+    </nav>
+
+    <!-- End Navbar -->
+
+    <!-- Sidebar -->
+    <div class="site-menubar">
+
+        <div class="site-menubar-body scrollable scrollable-inverse is-enabled scrollable-vertical">
+            <div class="scrollable-container">
+                <div class="scrollable-content">
+                    <ul ng-show="syst_selected_module.code == 'AR'" class="site-menu">
+
+                        <li class="site-menu-category">{{syst_selected_module.name}}</li>
+                        <li class="site-menu-item has-sub">
+                            <a href="" cancel data-slug="app">
+                                <i class="site-menu-icon wb-file" aria-hidden="true"></i>
+                                <span class="site-menu-title">File</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="login" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-close" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Exit</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a href="" cancel data-slug="app">
+                                <i class="site-menu-icon wb-loop" aria-hidden="true"></i>
+                                <span class="site-menu-title">Transactions</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="ar_invoice_setup" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-add-file" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Create Invoice</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-order" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Generate Invoice from Shipment</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item has-sub">
+                                    <a href="javascript:void(0)" data-slug="forms-editor">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-replay" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Create Sales Return</span>
+                                        <span class="site-menu-arrow"></span>
+                                    </a>
+                                    <ul class="site-menu-sub">
+                                        <li class="site-menu-item">
+                                            <a ui-sref="ar_sales_return_without_invoice_setup" class="animsition-link" href="">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">Without Invoice #</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a ui-sref="ar_sales_return_with_invoice_setup" class="animsition-link" href="">
+                                                <i class="site-menu-icon " aria-hidden="true"></i>
+                                                <span class="site-menu-title">With Invoice #</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="apply_payment" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Apply Payment</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Refund Open Credit</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="ar_invoice_import_setup" class="animsition-link" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-download" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Import Invoice</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="site-menu-item has-sub">
+                            <a href="" data-slug="app">
+                                <i class="site-menu-icon wb-graph-up" aria-hidden="true"></i>
+                                <span class="site-menu-title">Reports</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-print" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Print Invoice</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-order" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Invoice Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-graph-up" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Payment Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-arrow-left" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Receivable Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Customer Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-folder" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Inventory Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-folder" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Inventory Type Listing</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Revenue Code Listing</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Freight Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Salesperson Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Sales Tax Reports</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Pay Code Listing</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                                        <span class="site-menu-title">System Remarks Listing</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Currency Code Listing</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a data-slug="app">
+                                <i class="site-menu-icon wb-wrench" aria-hidden="true"></i>
+                                <span class="site-menu-title">Maintenance</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="customer_setup" class="animsition-link" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Customer</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="inventory_setup" class="animsition-link" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Inventory</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="freight_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-shopping-cart" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Freight Code</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="salesperson_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Salesperson</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="salestax_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Salex Tax Code</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="paycode_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-shopping-cart" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Pay Code</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="remark_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                                        <span class="site-menu-title">System Remark</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="customer_address_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Customer Address</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="currency_code_setup" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Currency Code</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-shopping-cart" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Void Payment</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Void Applied Credit</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-replay" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Void Refund</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="revenuecode_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-graph-up" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Revenue Code</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a ui-sref="bankaccount_setup" href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Bank Account</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a data-slug="app">
+                                <i class="site-menu-icon wb-home" aria-hidden="true"></i>
+                                <span class="site-menu-title">Housekeeping</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Ar Module Setup</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a data-slug="app">
+                                <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
+                                <span class="site-menu-title">Utilities</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-upload" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Table Browser & Explorer</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item is-shown">
+                                    <a href="" class="animsition-link" href="" data-slug="layout-grids">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <i class="site-menu-icon wb-list-bulleted" aria-hidden="true"></i>
+                                        <span class="site-menu-title">Data Manager</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub">
+                            <a data-slug="app">
+                                <i class="site-menu-icon wb-help" aria-hidden="true"></i>
+                                <span class="site-menu-title">Help</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="site-menubar-footer">
+        </div> -->
+    </div>
+
+    <!-- End Sidebar -->
+
+    <!-- Page -->
+    <div style="padding-top: 71px;" ui-view="dashboard_content"></div>
+
+</div>
+<!-- <div class="page bg-white"> -->
+<!-- <div class="page">
+    <div class="page-header page-header-bordered">
+        <h1 class="page-title">{{page_title}}</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="dashboard">Panel</a>
+            </li>
+            <li class="active">{{page_title}}</li>
+        </ol>
+    </div>
+
+</div> -->

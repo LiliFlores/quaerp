@@ -1,0 +1,253 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Line Items</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Description</th>
+                                        <th>Ship Qty</th>
+                                        <th>Return Qty</th>
+                                        <th>Unit Price</th>
+                                        <th>Discount %</th>
+                                        <th>Extended</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="!item.deleted" ng-repeat="item in invoice.items track by $index">
+                                        <td style="width: 200px;">
+                                            <div class="input-search">
+                                                <button ng-click="searchStockItem(item)" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                <input ng-model="item.citemno" ng-keydown="$event.which === 13 && searchStockItem(item)" type="text" class="form-control " name="item_code" placeholder="Item code" aria-invalid="false">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input ng-model="item.cdescript" class="form-control" type="text" placeholder="0" style="width: 100%;" />
+                                        </td>
+                                        <td>
+                                            <input string-to-number ng-model="item.shipqty" min="1" class="form-control" type="number" placeholder="0" style="width: 100px; padding: 0px; padding-left: 10px; padding-right: 10px;" />
+                                        </td>
+                                        <td>
+                                            <input ng-value="item.shipqty * -1" class="form-control" type="number" placeholder="0" style="width: 100px; padding: 0px; padding-left: 10px; padding-right: 10px;" readonly/>
+                                            <!-- {{item.shipqty + 1}} -->
+                                            <!-- <input value="5" class="form-control" type="number" placeholder="0" style="width: 100px; padding: 0px; padding-left: 10px; padding-right: 10px;" readonly/> -->
+                                        </td>
+                                        <td>
+                                            <input string-to-number ng-model="item.nprice" min="0" class="form-control" type="number" placeholder="0" style="width: 100%;" />
+                                        </td>
+                                        <td>
+                                            <input string-to-number ng-model="item.discount" min="0" max="100" class="form-control" type="number" placeholder="0.00%" style="width: 100px; padding: 0px; padding-left: 10px; padding-right: 10px;"  decimal-places/>
+                                        </td>
+                                        <td>
+                                            <input ng-model="item.extended" ng-value="(((item.shipqty * item.nprice) - ((item.shipqty * item.nprice) * (item.discount / 100))) * -1).toFixed(2)" type="text" class="form-control" style="width: 150px;" readonly></input>
+                                        </td>
+                                        <td>
+                                            <button ng-click="showItemInfo(item)" type="button" class="btn btn-icon btn-primary btn-round"><i class="icon wb-info" aria-hidden="true"></i></button>
+                                            <button ng-click="removeItem($index)" type="button" class="btn btn-icon btn-danger btn-round"><i class="icon wb-trash" aria-hidden="true"></i></button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="text-align: center;">
+                        <div class="btn-group" role="group">
+                            <button ng-click="addEmptyItem()" type="button" class="btn btn-success">
+                                <i class="icon wb-plus" aria-hidden="true"></i>
+                                <br>
+                                <span class="text-uppercase hidden-xs">Add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;"></h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Item #</label>
+                            <input ng-model="selected_item.citemno" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Description</label>
+                            <input ng-model="selected_item.cdescript" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Specification</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div>
+                            <label class="control-label">Class / Prod Ln</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px;">
+                                    <input type="text" class="form-control" readonly/>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-right: 0px;">
+                                    <input type="text" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Unit Price</label>
+                            <input ng-model="selected_item.nprice" type="text" class="form-control" readonly/>
+                        </div>
+                        <div>
+                            <label class="control-label">Special Price</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-bottom: 15px;">
+                                <div class="col-md-4 col-sm-4 col-xs-4" style="padding-left: 0px;">
+                                    <input type="text" class="form-control" readonly/>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" style="padding-left: 0px;">
+                                    <input type="text" class="form-control" value="/ /" readonly/>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" style="padding-left: 0px;">
+                                    <input type="text" class="form-control" value="/ /" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Warehouse</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">In-process</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">In-transit</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">On-order</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">On-hand</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Booked</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Available</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div>
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Currency</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <div class="col-md-6" style="padding-left: 0px;">
+                                        <input type="text" style="padding-right: 0px;" class="form-control" ng-model="invoice.customer.ccurrcode" readonly/>
+                                    </div>
+                                    <div class="col-md-6" style="padding: 0px;">
+                                        <input type="text" style="padding-right: 0px;" class="form-control" ng-model="invoice.currency" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Subtotal</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <input string-to-number ng-model="invoice.subtotal" type="number" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Discount</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <input string-to-number ng-model="invoice.total_discount" type="number" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Freight</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <input string-to-number ng-model="invoice.freight" min="0" ng-change="calculateInvoiceTotal()" ng-value="0" type="number" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Sales Tax</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button ng-click="openTaxModal()" type="button" class="input-search-btn"><i class="icon wb-edit" aria-hidden="true"></i></button>
+                                            <input string-to-number ng-model="invoice.overwrite_sales_tax" type="number" class="form-control" aria-invalid="false" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Adjustement</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <input string-to-number ng-model="invoice.adjustment" min="0" ng-change="calculateInvoiceTotal()" type="number" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <div class="col-md-12" style="padding-right: 0px; padding-bottom: 15px;">
+                                <div class="col-md-6" style="padding-top: 10px; padding-right: 0px;">
+                                    <label class="control-label pull-right">Total</label>
+                                </div>
+                                <div class="col-md-6" style="padding-right: 0px;">
+                                    <input string-to-number ng-model="invoice.total" type="number" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-include src="'modules/account_receivable/sales_return/with_invoice/lineitems/AddItemModal.html'"></ng-include>

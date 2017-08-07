@@ -1,0 +1,80 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white" style="color: #526069;">
+    <!-- Forum Sidebar -->
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">Invoice Forms</h5>
+                <div class="list-group">
+                    <a ui-sref="ar_invoice_import_valid" class="list-group-item">
+                        <i class="icon wb-check" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Valid Invoices </span> <span class="pull-right"><b>({{valid_invoice_count}})</b></span>
+                    </a>
+                    <a ui-sref="ar_invoice_import_invalid" class="list-group-item">
+                        <i class="icon wb-close" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Invalid Invoices</span> <span class="pull-right"><b>({{invalid_invoice_count}})</b></span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Invoice Manager</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="addInvoices()" ng-disabled="invalid_invoice_count != 0 || valid_invoice_count == 0" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+                <button type="button" class="btn btn-danger" disabled>
+                    <i class="icon wb-trash" aria-hidden="true"></i> Void
+                </button>
+                <button type="button" class="btn btn-primary" disabled>
+                    <i class="icon wb-copy" aria-hidden="true" style="color: white;"></i>
+                    Copy
+                </button>
+                <button type="button" class="btn btn-warning" disabled>
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+            </div>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <div style="display: inline;">
+                    <label style="display: inline; font-size: large;" for="invoice_action">Import Text File:</label>
+                    <input ng-model="current_file_name" class="form-control" type="text" readonly style="width: 250px; display: inline;"/>
+                    <button ng-click="clickOnFileInput()" type="button" class="btn btn-primary" style="margin-left: 20px;">
+                        Select File
+                        <i class="icon wb-add-file" aria-hidden="true"></i>
+                    </button>
+                    <input
+                    ng-model="csv"
+                    onchange="angular.element(this).scope().fileChanged()"
+                    type="file"
+                    accept=".txt"
+                    id="fileInput"
+                    style="display: none"/>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div ui-view="invoice_import_setup_content"></div>
+    </div>
+</div>

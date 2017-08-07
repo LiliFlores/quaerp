@@ -1,0 +1,227 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Customer general info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">NO</label>
+                            <input ng-model="customer.ccustno" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Address</label>
+                            <input ng-model="customer.caddr1" type="text" class="form-control" />
+                            <input ng-model="customer.caddr2" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">City</label>
+                            <input ng-model="customer.ccity" type="text" class="form-control" />
+                        </div>
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <label class="control-label">State</label>
+                                <input ng-model="customer.cstate" type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">Zip</label>
+                                <input ng-model="customer.czip" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Country</label>
+                            <input ng-model="customer.ccountry" type="text" class="form-control" />
+                        </div>
+
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">First</label>
+                            <input ng-model="customer.cfname" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Last</label>
+                            <input ng-model="customer.clname" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Dear</label>
+                            <input ng-model="customer.cdear" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Title</label>
+                            <input ng-model="customer.ctitle" type="text" class="form-control" />
+                        </div>
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <label class="control-label">Phone</label>
+                                <input ng-model="customer.cphone1" type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">Phone 2</label>
+                                <input ng-model="customer.cphone2" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Fax</label>
+                            <input ng-model="customer.cfax" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Email</label>
+                            <input ng-model="customer.cemail" type="text" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label class="control-label">Salesperson</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openSalespersonModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cslpnno" type="text" class="form-control" placeholder="Search salesperson">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div>
+                            <label class="control-label">Class</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button disabled type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input disabled type="text" class="form-control" placeholder="Search class">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Industry</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button disabled type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input disabled type="text" class="form-control" placeholder="Search class">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Territory</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button disabled type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input disabled type="text" class="form-control" placeholder="Search class">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Warehouse</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openWarehouseModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cwarehouse" type="text" class="form-control" placeholder="Search warehouse">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Bill To</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openAddressModal('bill')" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cbilltono" type="text" class="form-control" placeholder="Search bill to address">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Ship To</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openAddressModal('ship')" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cshiptono" type="text" class="form-control" placeholder="Search ship to address">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Sales Tax</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openSalesTaxModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.ctaxcode" type="text" class="form-control" placeholder="Search sales tax">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Resale #</label>
+                            <input ng-model="customer.crelaseno" type="text" class="form-control" />
+                        </div>
+
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">ATD Sales</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Credit Limit</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Open Order</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Open Credit</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Balance</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Status</label>
+                            <input ng-model="customer.cstatus" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Create</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Discount %</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Price Cd</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Pay Cd</label>
+                            <input ng-model="customer.cpaycode" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Currency</label>
+                            <input ng-model="customer.ccurrcode" type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
+                            <div class="panel-heading">
+                                &nbsp;&nbsp;
+                                <label style="font-size: x-large;">
+                                    <input type="checkbox" style="display: inline;" ng-model="activate_internet_order_button"/>
+                                    Use in Internet Order
+                                </label>
+                            </div>
+                            <div class="panel-body" style="text-align: center;">
+                                <button type="button" class="btn btn-primary" style="width: 40%;" ng-disabled="!activate_internet_order_button">
+                                    Setup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-include src="'modules/maintenance/customer/information/SelectWarehouseModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/customer/information/SelectAddressModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/customer/information/SelectSalesTaxModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/customer/information/SelectSalespersonModal.html'"></ng-include>

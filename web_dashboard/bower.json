@@ -1,0 +1,32 @@
+{
+  "name": "web_dashboard",
+  "description": "Web ERP dashboard",
+  "main": "config.js",
+  "authors": [
+    "Erick Alvarez"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datatables": "^2.3.0",
+    "angular-resource": "^1.5.9",
+    "ng-alertify": "^1.0.2",
+    "alertify.js": "^0.3.11",
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0",
+    "angular-aria": "^1.6.0",
+    "ng-table": "^2.1.0",
+    "angular-bootstrap": "^2.3.1",
+    "angular-material": "^1.1.1",
+    "formatter.js": "formatter#^0.1.5",
+    "angular-input-masks": "^2.5.0",
+    "angular-ui-utils": "^3.0.0"
+  }
+}

@@ -1,0 +1,122 @@
+<style>
+	.ar-menu-active {
+		color: #62a8ea;
+		background-color: #f3f7f9;
+	}
+</style>
+<div class="page bg-white">
+	<!-- Forum Sidebar -->
+	<div class="page-aside">
+		<div class="page-aside-switch">
+			<i class="icon wb-chevron-left" aria-hidden="true"></i>
+			<i class="icon wb-chevron-right" aria-hidden="true"></i>
+		</div>
+		<div class="page-aside-inner">
+			<section class="page-aside-section">
+				<h5 class="page-aside-title">Inventory Maintenance</h5>
+				<div class="list-group">
+					<a ui-sref="inventory_information" class="list-group-item">
+                        <i class="icon wb-info" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Information</span>
+                    </a>
+					<a ui-sref="inventory_remark" class="list-group-item">
+                        <i class="icon wb-users" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Remark/Image</span>
+                    </a>
+					<a ui-sref="inventory_notepad" class="list-group-item">
+                        <i class="icon wb-pencil" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Notepad</span>
+                    </a>
+					<a ui-sref="inventory_analysis" class="list-group-item">
+                        <i class="icon wb-stats-bars" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Analysis</span>
+                    </a>
+					<a ui-sref="inventory_settings" class="list-group-item">
+                        <i class="icon wb-settings" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Settings</span>
+                    </a>
+					<a ui-sref="inventory_gl_accounts" class="list-group-item">
+                        <i class="icon wb-order" aria-hidden="true"></i>
+                        <span class="list-group-item-content">GL Accounts</span>
+                    </a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- Forum Content -->
+	<div class="page-main">
+
+		<!-- Forum Content Header -->
+		<div class="page-header" style="padding-bottom: 10px;">
+			<h1 class="page-title">Inventory Manager</h1>
+			<!--Purchase Order item : {{ inventory.item.laritem }}-->
+			<div style="padding-top: 10px; padding-bottom: 10px;">
+				<button ng-disabled="!inventory.item.citemno" ng-click="saveInventory()" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+				<button ng-click="deleteInventory()" ng-disabled="!inventory.item.citemno" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i> Void
+                </button>
+				<!--<button ng-click="copyInventory()" ng-disabled="1" type="button" class="btn btn-primary">
+                    <i class="icon wb-loop" aria-hidden="true" style="color: white;"></i>
+                    Update
+                </button>-->
+				<button ng-click="clearInventory()" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+				<button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<div>
+							<label class="col-md-2 col-xs-3 control-label" style="padding:0px;line-height:35px;">Item #</label>
+							<div class="col-md-10 col-xs-9">
+								<div class="input-search">
+									<button ng-disabled="items_list.length == 0" ng-click="openSearchItemModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+									<input ng-disabled="items_list.length == 0" ng-blur="checkItemExist()" style="height:auto;" ng-model="inventory.item.citemno" type="text" class="form-control" placeholder="Search Item">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<div>
+							<label class="col-md-3 col-xs-3 control-label" style="padding:0px;line-height:35px;">Description</label>
+							<div class="col-md-9 col-xs-9">
+								<div class="input-search">
+									<input style="height:auto;" ng-model="inventory.item.cdescript" type="text" class="form-control" disabled>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<div>
+							<label class="col-md-2 col-xs-3 control-label" style="padding:0px;line-height:35px;">Whse</label>
+							<div class="col-md-10 col-xs-9">
+								<div class="input-search">
+									<button ng-click="openSearchWhseModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+									<input style="height:auto;"  ng-init="inventory.item.cwarehouse='MAIN'" value="MAIN" type="text" class="form-control" placeholder="Search Ware House"> <!--!ng-model="inventory.item.cwarehouse"-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr style="margin-top:0px;">
+
+		<div ui-view="inventory_setup_content"></div>
+	</div>
+</div>
+
+<!-- <ng-include src="'app/components/group/addGroupModal.html'"></ng-include> -->

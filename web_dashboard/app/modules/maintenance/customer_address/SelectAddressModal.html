@@ -1,0 +1,37 @@
+<div id="SelectAddressModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Client</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Customer NO</th>
+                                    <th>Address NO</th>
+                                    <th>Company</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectAddress(current_address)" ng-repeat='current_address in address_list'>
+                                    <td>{{current_address.ccustno}}</td>
+                                    <td>{{current_address.caddrno}}</td>
+                                    <td>{{current_address.ccompany}}</td>
+                                    <td>{{current_address.caddr1}}, {{customer.caddr2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

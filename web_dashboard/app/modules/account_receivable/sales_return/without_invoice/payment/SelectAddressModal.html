@@ -1,0 +1,43 @@
+<div id="SelectAddressModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Address</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Address #</th>
+                                    <th>Company</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectAddress(address)" ng-repeat='address in cusaddr_list' ng-show="invoice.customer.ccustno == address.ccustno">
+                                    <td>{{address.caddrno}}</td>
+                                    <td>{{address.ccompany}}</td>
+                                    <td>{{address.caddr1}}</td>
+                                    <td>{{address.ccity}}</td>
+                                    <td>{{address.cstate}}</td>
+                                    <td>{{address.czip}}</td>
+                                    <td>{{address.ccontact}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

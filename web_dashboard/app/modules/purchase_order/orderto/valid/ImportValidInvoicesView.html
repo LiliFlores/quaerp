@@ -1,0 +1,69 @@
+<div class="page-content page-content-table">
+
+    <div class="col-md-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Valid Invoices</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h2>Invoices</h2>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Customer #</th>
+                                    <th style="text-align: center;">Invoice #</th>
+                                    <th style="text-align: center;">Date</th>
+                                    <th style="text-align: center;">Sales Person</th>
+                                    <th style="text-align: center;">Pay Code</th>
+                                    <th style="text-align: center;">Currency</th>
+                                    <th style="text-align: center;">Invoice Amt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectInvoice(invoice)" ng-repeat="invoice in valid_invoice_list">
+                                    <td>{{invoice.customer.ccustno}}</td>
+                                    <td>{{invoice.next_invoice}}</td>
+                                    <td>{{invoice.invoice_date}}</td>
+                                    <td>{{invoice.sales_person.id}}</td>
+                                    <td>{{invoice.customer.cpaycode}}</td>
+                                    <td>{{invoice.customer.ccurrcode}}</td>
+                                    <td>{{invoice.nfbalance}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <h2>Items</h2>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Item #</th>
+                                    <th style="text-align: center;">Item Description</th>
+                                    <th style="text-align: center;">Ship Qty</th>
+                                    <th style="text-align: center;">Unit Price</th>
+                                    <th style="text-align: center;">Disc %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in selected_invoice_items">
+                                    <td>{{item.cdescript}}</td>
+                                    <td>{{item.citemno}}</td>
+                                    <td>{{item.shipqty}}</td>
+                                    <td>{{item.nprice}}</td>
+                                    <td>{{item.discount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

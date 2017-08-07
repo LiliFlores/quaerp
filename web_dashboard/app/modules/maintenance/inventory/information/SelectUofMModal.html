@@ -1,0 +1,39 @@
+<div id="SelectUofMModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">U of M Leading Search</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>U of M</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>Qty Factor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{selectRow : uofm.cmeasure == inventory.item.cmeasure}" ng-click="selectUofM(uofm)" ng-repeat='uofm in uofm_list'>
+                                    <td>{{uofm.cmeasure}}</td>
+                                    <td>{{uofm.cdescript}}</td>
+                                    <td>{{uofm.cstatus}}</td>
+                                    <td>{{uofm.ncnvqty}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" disabled>Add</button>
+                <button type="button" class="btn btn-default" >OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

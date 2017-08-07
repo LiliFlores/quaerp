@@ -1,0 +1,114 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white" style="color: #526069;">
+    <!-- Forum Sidebar -->
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">Invoice Forms</h5>
+                <div class="list-group">
+                    <a ui-sref="ar_invoice_setup_information" class="list-group-item">
+                        <i class="icon wb-info" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Information</span>
+                    </a>
+                    <a ui-sref="ar_invoice_setup_line_items" class="list-group-item">
+                        <i class="icon wb-shopping-cart" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Line Items</span>
+                    </a>
+                    <a ui-sref="ar_invoice_setup_payment" class="list-group-item">
+                        <i class="icon wb-payment" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Payment / Bill To / Ship to</span>
+                    </a>
+                    <a ui-sref="ar_invoice_setup_notepad" class="list-group-item">
+                        <i class="icon wb-pencil" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Customer Notepad</span>
+                    </a>
+                    <a ng-if="invoice_action == 'amend'" ui-sref="ar_invoice_preview" class="list-group-item">
+                        <i class="icon wb-eye" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Invoice Preview</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Invoice Manager</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="saveInvoice()" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+                <button ng-click="deleteInvoice()" ng-disabled="!invoice.id" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i> Void
+                </button>
+                <button ng-disabled="1" ng-click="copyInvoice()" type="button" class="btn btn-primary">
+                    <i class="icon wb-copy" aria-hidden="true" style="color: white;"></i>
+                    Copy
+                </button>
+                <button ng-click="clearInvoice()" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-disabled="enable_print_invoice_preview" onclick="window.print()">
+                    <i class="icon wb-print" aria-hidden="true"></i> Print
+                </button>
+
+                <div ng-if="invoice_action == 'amend' && invoice.active" class="pull-right" style="display: inline;">
+                    <label style="display: inline; font-size: large; height: 36px;"><strong>Invoice status :</strong></label>
+                    <input ng-value="((invoice.active == '1') ? 'Active': 'Deleted')" class="form-control" type="text" readonly style="width: 100px; display: inline;"/>
+                </div>
+
+            </div>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <div style="display: inline;">
+                    <select
+                        ng-model="invoice_action"
+                        ng-init="invoice_action = invoice_method_list[0]"
+                        ng-options="method for method in invoice_method_list"
+                        ng-change="changeInvoiceMode()"
+                        class="form-control"
+                        style="width: 200px; display: inline;">
+                    </select>
+                </div>
+                <div style="display: inline; padding-left: 20px;">
+                    <label style="display: inline; font-size: large;" for="customer">Customer #:</label>
+                    <select
+                        ng-disabled="invoice_action == 'amend'"
+                        class="form-control"
+                        style="width: 200px; display: inline;"
+                        ng-options="customer as customer.ccustno for customer in customer_list"
+                        ng-model="invoice.customer"
+                        ng-change="updateCustomerData()">
+                    </select>
+                </div>
+                <div style="display: inline; padding-left: 20px;">
+                    <input class="form-control" type="text" ng-model="invoice.customer.ccompany" readonly style="width: 300px; display: inline;"/>
+                </div>
+                <div ng-if="invoice_action == 'amend'" class="pull-right" style="display: inline;">
+                    <label style="display: inline; font-size: large; height: 36px;" for="invoice_action"><strong>Invoice #:</strong></label>
+                    <input ng-model="amend_invoice.invoice_to_search" ng-keydown="$event.which === 13 && searchInvoice()" class="form-control" type="text" style="width: 100px; display: inline;"/>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div ui-view="invoice_setup_content"></div>
+    </div>
+</div>

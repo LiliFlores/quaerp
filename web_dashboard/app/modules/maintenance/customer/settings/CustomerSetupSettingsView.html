@@ -1,0 +1,180 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Settings</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Status</label>
+                            <select
+                                ng-model="customer.cstatus"
+                                ng-options="cust_status.status as cust_status.description for cust_status in customer_status_list"
+                                class="form-control"></select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Credit Limit</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Discount %</label>
+                            <input string-to-number ng-model="customer.ndiscrate" type="number" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Price Code</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cpricecd" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Revenue Code</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openRevenueModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.crevncode" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Paycode</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openPaycodeModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.cpaycode" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Currency Code</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openCurrencyModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.ccurrcode" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">EDI Status</label>
+                            <select class="form-control" disabled>
+                                <option>New</option>
+                                <option>Old</option>
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">EDI Address</label>
+                            <input type="text" class="form-control" disabled />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" id="check1" disabled>
+                            <label for="check1">Apply Finance Charge</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" id="check2" disabled>
+                            <label for="check2">Print Statement</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" id="check3" disabled>
+                            <label for="check3">User Customer Item #</label>
+                        </div>
+                        <div class="checkbox-custom checkbox-primary">
+                            <input type="checkbox" id="check4" disabled>
+                            <label for="check4">Ship SO Generate Invoice</label>
+                        </div>
+
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Statement</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group form-material">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="r1" name="inputRadios" checked disabled>
+                                            <label for="r1">Print Open Item</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="r2" name="inputRadios" disabled>
+                                            <label for="r2">Print Balance Forward</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Current Customer Price Based on</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="check5" disabled>
+                                    <label for="check5">Use Last Sales Order Price</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <label class="control-label">Expire Days</label>
+                                    <input type="text" class="form-control" value="0" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Credit Card Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="table-responsive" style="height: 300px;">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Paycode</th>
+                                    <th style="text-align: center;">Credit Card #</th>
+                                    <th style="text-align: center;">Exp Date</th>
+                                    <th style="text-align: center;">Cardholder Name</th>
+                                    <th style="text-align: center;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-if="!card.deleted" ng-repeat="card in card_list">
+                                    <td><select ng-model="card.cpaycode" ng-options="paycode.cpaycode as paycode.cpaycode for paycode in paycode_list" class="form-control"></select></td>
+                                    <td><input ng-model="card.ccardno" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="card.cexpdate" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="card.ccardname" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><button ng-click="removeCard($index)" type="button" class="btn btn-icon btn-danger btn-round"><i class="icon wb-trash" aria-hidden="true"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align: center; margin-top: 30px;">
+                    <button ng-click="addCard()" type="button" class="btn btn-lg btn-success">Add Card</button>
+                    <!-- <button type="button" class="btn btn-lg btn-danger">Delete Card</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-include src="'modules/maintenance/customer/settings/SelectRevenueModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/customer/settings/SelectPaycodeModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/customer/settings/SelectCurrencyModal.html'"></ng-include>

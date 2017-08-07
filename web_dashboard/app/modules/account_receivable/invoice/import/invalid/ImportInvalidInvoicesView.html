@@ -1,0 +1,23 @@
+<div class="page-content page-content-table">
+
+    <div class="col-md-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Invalid Invoices</h3>
+            </div>
+            <div class="panel-body">
+                <h2>Inovices:</h2>
+                <ul>
+                    <li ng-repeat="invalid_invoice in invalid_invoice_list">Invoice # {{invalid_invoice.next_invoice}} needs to be verified.
+                        <ul>
+                            <li ng-repeat="error_message in invalid_invoice.error_message track by $index">
+                                {{error_message}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

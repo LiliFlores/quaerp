@@ -1,0 +1,394 @@
+[15-Jul-2017 15:10:34 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[15-Jul-2017 15:10:35 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 14:58:19 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 14:58:20 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 14:58:54 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 14:58:55 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:01:42 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:01:42 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:01:48 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:01:48 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:02:26 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:05:34 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:06:20 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (litecode_sm_quaerp).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/ in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 93
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 98
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 99
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 100
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 103
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 108
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 109
+[16-Jul-2017 15:11:07 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 110
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:15 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM c...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM c...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM c...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM c...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM c...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM g...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM g...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM g...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM g...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM g...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM c...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM c...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM c...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM c...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM c...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:16 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM a...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM a...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM a...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM a...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM a...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:11:17 America/Tijuana] PHP Fatal error:  Uncaught exception 'PDOException' with message 'Could not connect to database (sapi_dbxyz).' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:857
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(683): RedBeanPHP\Driver\RPDO->connect()
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT * FROM i...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT * FROM i...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10243): RedBeanPHP\Adapter\DBAdapter->get('SELECT * FROM i...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(10895): RedBeanPHP\Facade::query('get', 'SELECT * FROM i...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(619): RedBeanPHP\Facade::getAll('SELECT * FROM i...')
+#6 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 857
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 93
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 98
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 99
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 100
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 103
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 108
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 109
+[16-Jul-2017 15:14:10 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 110
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 93
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 98
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 99
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 100
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 103
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 108
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 109
+[16-Jul-2017 15:23:42 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 110
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 93
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 98
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 99
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 100
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Warning:  shell_exec() has been disabled for security reasons in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 103
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 1 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 108
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 2 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 109
+[16-Jul-2017 15:27:18 America/Tijuana] PHP Notice:  Undefined offset: 4 in /home/litecode/public_html/quaerp/web_api/api/modules/modules.php on line 110
+[16-Jul-2017 15:49:30 America/Tijuana] PHP Notice:  Undefined variable: api in /home/litecode/public_html/quaerp/web_api/api/start.php on line 13
+[16-Jul-2017 15:49:30 America/Tijuana] PHP Fatal error:  Call to a member function setDatabaseData() on a non-object in /home/litecode/public_html/quaerp/web_api/api/start.php on line 13
+[16-Jul-2017 15:49:34 America/Tijuana] PHP Notice:  Undefined variable: api in /home/litecode/public_html/quaerp/web_api/api/start.php on line 13
+[16-Jul-2017 15:49:34 America/Tijuana] PHP Fatal error:  Call to a member function setDatabaseData() on a non-object in /home/litecode/public_html/quaerp/web_api/api/start.php on line 13
+[17-Jul-2017 08:15:11 America/Tijuana] PHP Notice:  Undefined index: id in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 7273
+[17-Jul-2017 08:31:37 America/Tijuana] PHP Notice:  Undefined index: id in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 7273
+[17-Jul-2017 08:31:52 America/Tijuana] PHP Notice:  Undefined index: id in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 7273
+[18-Jul-2017 05:28:39 UTC] PHP Warning:  include_once(config.php): failed to open stream: No such file or directory in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 11
+[18-Jul-2017 05:28:39 UTC] PHP Warning:  include_once(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 11
+[18-Jul-2017 05:28:39 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'litecode'@'localhost' (using password: NO) in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 14
+[18-Jul-2017 05:30:50 UTC] PHP Warning:  include_once(config.php): failed to open stream: No such file or directory in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 11
+[18-Jul-2017 05:30:50 UTC] PHP Warning:  include_once(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 11
+[18-Jul-2017 05:30:50 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'litecode'@'localhost' (using password: NO) in /home/litecode/public_html/quaerp/web_api/api/save_form.php on line 14
+[21-Jul-2017 13:35:51 America/Tijuana] PHP Fatal error:  Uncaught [3D000] - SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected
+trace: #0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8612): RedBeanPHP\OODB->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 719
+[21-Jul-2017 13:35:52 America/Tijuana] PHP Fatal error:  Uncaught [3D000] - SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected
+trace: #0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(881): RedBeanPHP\Driver\RPDO->runQuery('SELECT `smauth`...', Array)
+#1 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(3426): RedBeanPHP\Driver\RPDO->GetAll('SELECT `smauth`...', Array)
+#2 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(5136): RedBeanPHP\Adapter\DBAdapter->get('SELECT `smauth`...', Array)
+#3 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(7128): RedBeanPHP\QueryWriter\AQueryWriter->queryRecord('smauth', Array, 'token = ? LIMIT...', Array)
+#4 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8201): RedBeanPHP\Repository->find('smauth', Array, 'token = ? LIMIT...', Array)
+#5 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8612): RedBeanPHP\OODB->find('smauth', Array, 'token = ? LIMIT...', Array)
+#6 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(8 in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 719
+[21-Jul-2017 13:57:33 America/Tijuana] PHP Fatal error:  Uncaught exception 'RedBeanPHP\RedException' with message 'Cannot cast to bean.' in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php:2268
+Stack trace:
+#0 /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php(2485): RedBeanPHP\OODBBean->__set('type', Object(stdClass))
+#1 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(727): RedBeanPHP\OODBBean->offsetSet('type', Object(stdClass))
+#2 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(471): GenericModel->update('icitem', Object(stdClass))
+#3 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(316): GenericController->update('icitem', Object(stdClass), 'json')
+#4 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(244): Api->{closure}('icitem', Object(stdClass), 'json')
+#5 /home/litecode/public_html/quaerp/web_api/vendor/gen_api/lib/0.1/api.php(319): Api->put(Object(Closure))
+#6 /home/litecode/public_html/quaerp/web_api/api/start.php(18): Api->setGene in /home/litecode/public_html/quaerp/web_api/vendor/redbean/rb.php on line 2268

@@ -1,0 +1,50 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Customer general info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    <div class="table-responsive" style="height: 350px;">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Title</th>
+                                    <th>Phone</th>
+                                    <th>E-mail</th>
+                                    <th>Fax</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-if="!contact.deleted" ng-repeat="contact in contact_list">
+                                    <td><input ng-model="contact.cfname" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="contact.clname" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="contact.ctitle" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="contact.cphone" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="contact.cemail" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><input ng-model="contact.cfax" class="form-control" type="text" style="width: 100%;"></td>
+                                    <td><button ng-click="removeContact($index)" type="button" class="btn btn-icon btn-danger btn-round"><i class="icon wb-trash" aria-hidden="true"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <textarea type="text" class="form-control" rows="5" style="margin-top: 50px;" disabled>NO SE EN QUE COLUMNA VA ESTO</textarea>
+
+                    <div class="col-md-12" style="text-align: center; margin-top: 30px;">
+                        <button ng-click="addNewContact()" type="button" class="btn btn-lg btn-success">Add</button>
+                        <!-- <button type="button" class="btn btn-lg btn-danger">Delete</button> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

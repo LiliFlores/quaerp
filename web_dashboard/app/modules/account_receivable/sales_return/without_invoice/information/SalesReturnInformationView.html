@@ -1,0 +1,226 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Company</label>
+                            <input ng-value="invoice.customer.ccompany" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Address</label>
+                            <input ng-value="customer.caddr1" type="text" class="form-control" readonly/>
+                            <input ng-value="invoice.customer.caddr2" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">City</label>
+                            <input ng-value="invoice.customer.ccity" type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <label class="control-label">State</label>
+                                <input ng-value="invoice.customer.cstate" type="text" class="form-control" readonly/>
+                            </div>
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">zip</label>
+                                <input ng-value="invoice.customer.czip" type="text" class="form-control" readonly/>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Phone</label>
+                            <input ng-value="invoice.customer.cphone1" type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Class</label>
+                            <input ng-value="invoice.customer.cclass" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Industry</label>
+                            <input ng-value="invoice.customer.cindustry" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Territory</label>
+                            <input ng-value="invoice.customer.cterr" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Price Cd</label>
+                            <input ng-value="invoice.customer.cpricecd" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Pay Cd</label>
+                            <input ng-value="invoice.customer.cpaycode" type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">ATD Sales</label>
+                            <input ng-value="invoice.customer.natdsamt" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Open Credit</label>
+                            <input ng-value="invoice.customer.nopencr" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Past Due</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Balance</label>
+                            <input ng-value="invoice.customer.nbalance" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Open Order</label>
+                            <input ng-value="invoice.customer.nsoboamt" type="text" class="form-control" readonly/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Credit Available</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;"></h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Ship Via: <strong>{{invoice.ship_via.description}}</strong></label>
+                            <select
+                                id="ship_via_select"
+                                ng-model="invoice.ship_via"
+                                class="form-control"
+                                ng-options="ship_via.description for ship_via in shipvia_list">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">F.O.B.: <strong>{{invoice.fob.description}}</strong></label>
+                            <select
+                                id="fob_select"
+                                class="form-control"
+                                ng-model="invoice.fob"
+                                ng-options="fob.code for fob in fob_list">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Customer PO #</label>
+                            <input ng-model="invoice.cpono" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Ordered By</label>
+                            <input ng-model="invoice.corderby" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Salesperson #</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openSalesPersonModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                    <input ng-model="invoice.salesperson.cname" type="text" class="form-control" placeholder="Search sales person" aria-invalid="false">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Entered By</label>
+                            <input ng-model="invoice.corderby" type="text" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">SO #</label>
+                            <input ng-model="invoice.sono" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Sidemark #</label>
+                            <input ng-model="invoice.sidemarkno" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <!-- <div class="form-group has-feedback" ng-class="{'has-success': order_date_status, 'has-error': !order_date_status}" style="padding-bottom: 15px;">
+                            <label class="control-label">Order Date <strong>{{invoice.dorder}}</strong></label>
+                            <input order-date id="invoice_order_date" type="text" class="form-control"/>
+                        </div> -->
+                        <!-- <div class="form-group has-feedback" ng-class="{'has-success': invoice_date_status, 'has-error': !invoice_date_status}">
+                            <label class="control-label">Credit Date <strong>{{invoice.dinvoice}}</strong></label>
+                            <input invoice-date id="invoice_invoice_date" type="text" class="form-control"/>
+                        </div> -->
+                        <div class="form-group has-feedback" style="padding-bottom: 15px;">
+                            <label class="control-label">Order Date </label>
+                            <input ng-model="invoice.dorder" type="date" class="form-control"/>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label">Credit Date</label>
+                            <input ng-model="invoice.dinvoice" type="date" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Warehouse: <strong>{{invoice.warehouse.cdescript}}</strong></label>
+                            <select
+                                id="warehouse_select"
+                                ng-model="invoice.warehouse"
+                                ng-options="warehouse.cwarehouse for warehouse in warehouse_list"
+                                class="form-control">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Comission</label>
+                            <select id="comission_select" class="form-control" disabled>
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Discount %</label>
+                            <input ng-model="invoice.ddiscount" ng-value="ddiscount" type="text" class="form-control" value="0.00%" disabled/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Extra info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Remark #</label>
+                            <div class="input-search">
+                                <button ng-click="openRemarkModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                <input ng-model="invoice.remark.code" type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" name="" placeholder="Search remark code" aria-invalid="false">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="padding-bottom: 15px;">
+                            <textarea ng-model="invoice.remark.remarks" type="text" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Import Modals -->
+<ng-include src="'modules/account_receivable/sales_return/with_invoice/information/SelectSalesPersonModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/sales_return/with_invoice/information/SelectRemarkModal.html'"></ng-include>

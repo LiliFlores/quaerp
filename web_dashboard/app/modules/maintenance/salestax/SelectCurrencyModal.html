@@ -1,0 +1,37 @@
+<div id="SelectCurrencyModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Currency Code</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Symbol</th>
+                                    <th>C name</th>
+                                    <th>Exchange rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectCurrency(currency)" ng-repeat='currency in currency_list'>
+                                    <td>{{currency.ccurrcode}}</td>
+                                    <td>{{currency.csymbol}}</td>
+                                    <td>{{currency.ccurrname}}</td>
+                                    <td>{{currency.nxchgrate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

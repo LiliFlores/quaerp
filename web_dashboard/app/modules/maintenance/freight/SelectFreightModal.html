@@ -1,0 +1,37 @@
+<div id="SelectFreightModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Freight</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>trevacc</th>
+                                    <th>Tax 1</th>
+                                    <th>Tax 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectFreight(current_freight)" ng-repeat='current_freight in freight_list'>
+                                    <td>{{current_freight.description}}</td>
+                                    <td>{{current_freight.trevacc}}</td>
+                                    <td>{{current_freight.taxable1}}</td>
+                                    <td>{{current_freight.taxable2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<style>
+    .ar-menu-active{
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white">
+    <!-- Forum Sidebar -->
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">My Groups</h5>
+                <div class="list-group">
+                    <a class="list-group-item" ui-sref="ar_setup_general1">
+                        <i class="icon wb-order" aria-hidden="true"></i>
+                        <span class="list-group-item-content">General (1)</span>
+                    </a>
+                    <a class="list-group-item" ui-sref="ar_setup_general2">
+                        <i class="icon wb-order" aria-hidden="true"></i>
+                        <span class="list-group-item-content">General (2)</span>
+                    </a>
+                    <a class="list-group-item" ui-sref="ar_setup_finance_charge">
+                        <i class="icon wb-graph-up" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Finance Charge</span>
+                    </a>
+                    <a class="list-group-item" ui-sref="ar_setup_printing">
+                        <i class="icon wb-print" aria-hidden="true"></i>
+                        <span class="list-group-item-content">Printing</span>
+                    </a>
+                    <a class="list-group-item" ui-sref="ar_setup_gl_accounts">
+                        <i class="icon wb-cloud" aria-hidden="true"></i>
+                        <span class="list-group-item-content">GL Accounts</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header">
+            <h1 class="page-title">{{page_title}}</h1>
+        </div>
+
+        <div ui-view="ar_setup_content"></div>
+    </div>
+</div>
+
+<!-- <ng-include src="'app/components/group/addGroupModal.html'"></ng-include> -->

@@ -1,0 +1,29 @@
+--------------------------------------------------------------------
+  Code  | Description                |  api (URI)        |  method
+--------|----------------------------|-------------------|----------
+   0    |  Create company            |  company/         |  POST
+   0    |  Get company               |  company/         |  GET
+--------|----------------------------|-------------------|----------
+   0    |  Create users              |  user/            |  POST
+   0    |  Get users                 |  user/            |  GET
+   0    |  Edit users                |  user/            |  UPDATE
+   0    |  Delete users              |  user/            |  DELETE
+--------|----------------------------|-------------------|----------
+   0    |  Get user permission       |  user/permission  |  GET
+--------|----------------------------|-------------------|----------
+   0    |  Create groups             |  usergroup/       |  POST
+   0    |  Get groups                |  usergroup/       |  GET
+--------|----------------------------|-------------------|----------
+   0    |  Update general1 config    |  ar/general1      |  UPDATE
+   0    |  Get general1 config       |  ar/general1      |  GET
+   0    |  Update general2 config    |  ar/general2      |  UPDATE
+   0    |  Get general2 config       |  ar/general2      |  GET
+   0    |  Update fcharge config     |  ar/fcharge       |  UPDATE
+   0    |  Get fcharge config        |  ar/fcharge       |  GET
+   0    |  Update printing config    |  ar/printing      |  UPDATE
+   0    |  Get printing config       |  ar/printing      |  GET
+   0    |  Update glaccounts config  |  ar/glaccounts    |  UPDATE
+   0    |  Get glaccounts config     |  ar/glaccounts    |  GET
+
+authmodules
+SM = System Manager

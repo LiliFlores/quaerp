@@ -1,0 +1,151 @@
+<div class="page">
+    <div class="page-header page-header-bordered">
+        <h1 class="page-title">{{page_title}}</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="dashboard">Panel</a>
+            </li>
+            <li class="active">{{page_title}}</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Panel Static Lables -->
+                <div class="panel">
+                    <!-- <div class="panel-heading">
+                <h3 class="panel-title">{{page_title}}</h3>
+            </div> -->
+                    <div class="panel-body container-fluid">
+                        <form id="create_company_form" ng-submit="createCompany()" autocomplete="off">
+                            <h2>General info</h2>
+                            <div class="form-group form-material row">
+                                <div class="col-md-2">
+                                    <label class="control-label" for="company_id">Company ID</label>
+                                    <input ng-model="company.cid" type="text" class="form-control" id="company_id" name="company_id" placeholder="Unique company ID">
+                                </div>
+                                <div class="col-md-10">
+                                    <label class="control-label" for="company_name">Company Name</label>
+                                    <input ng-model="company.name" type="text" class="form-control" id="company_name" name="company_name" placeholder="Company name">
+                                </div>
+                                <!-- <div class="col-md-2">
+                                    <label class="control-label" for="inputGrid2">Upload Logo</label>
+                                    <button id="upload_file_button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" class="btn btn-outline btn-default" type="button">Upload</button>
+                                </div> -->
+                            </div>
+                            <div class="form-group form-material row">
+                                <div class="col-md-6">
+                                    <label class="control-label" for="company_city">City</label>
+                                    <input ng-model="company.city" type="text" class="form-control" id="company_city" name="company_city" placeholder="Company city">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label" for="company_address">Address</label>
+                                    <input ng-model="company.address" type="text" class="form-control" id="company_address" name="company_address" placeholder="Company address">
+                                </div>
+                            </div>
+                            <div class="form-group form-material row">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_state">State</label>
+                                    <input ng-model="company.state" type="text" class="form-control" id="company_state" name="company_state" placeholder="Company state">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_zip">Zip</label>
+                                    <input ng-model="company.zip" type="number" class="form-control" id="company_zip" name="company_zip" placeholder="Company zip code">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_phone">Phone</label>
+                                    <input ng-model="company.phone" type="number" class="form-control" id="company_phone" name="company_phone" placeholder="Company zip code">
+                                </div>
+                            </div>
+
+                            <h2>Date</h2>
+                            <div class="form-group form-material">
+                                <label class="control-label" for="company_subdirectory">Subdirectory</label>
+                                <input ng-model="company.subdirectory" type="text" class="form-control" id="company_subdirectory" name="company_subdirectory" placeholder="Company subdirectory">
+                            </div>
+
+                            <div class="form-group form-material row">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_fperiods">Number of fiscal periods</label>
+                                    <input ng-model="company.nofp" type="number" class="form-control" id="company_fperiods" name="company_fperiods" placeholder="# of fiscal periods">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_dformat">Date Format</label>
+                                    <select ng-model="company.df" id="company_dformat" class="form-control">
+                                        <option value="American">American</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="company_hcurrency">Home Currency</label>
+                                    <!-- <input ng-model="company.hcurrency" type="number" class="form-control" id="company_hcurrency" name="company_hcurrency" placeholder="For example: USD"> -->
+                                    <select ng-model="company.hcurrency" class="form-control" ng-init="company.hcurrency = 'USD'">
+                                        <option value="USD">USD</option>
+                                        <option value="MN">MN</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-material row">
+                                <div class="col-md-6">
+                                    <label class="control-label" for="company_fdfd">First day of fiscal day</label>
+                                    <input ng-model="company.fdofd" type="text" class="form-control" id="company_fdfd" value="00000000">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label" for="company_cfy">Current fiscal year</label>
+                                    <input ng-model="company.cfy" type="text" class="form-control" id="company_cfy" value="0000">
+                                </div>
+                            </div>
+
+                            <div class="form-group form-material">
+                                <label class="control-label" for="inputEmail">Sales tax address</label>
+
+                                <div class="radio-custom radio-primary">
+                                    <input ng-model="company.sta" value="USA" type="radio" id="company_stau" name="company_stau" />
+                                    <label for="company_stau">USA</label>
+                                </div>
+                                <div class="radio-custom radio-primary">
+                                    <input ng-model="company.sta" value="Canada / Other" type="radio" id="company_stac" name="company_stac" />
+                                    <label for="company_stac">Canada / Other</label>
+                                </div>
+                            </div>
+
+                            <h2>Database</h2>
+                            <div class="form-group form-material row">
+                                <div class="col-md-4">
+                                    <label class="control-label">Hostname</label>
+                                    <input ng-model="company.db_hostname" type="text" class="form-control" name="company_hostname" placeholder="Hostname">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Port</label>
+                                    <input ng-model="company.db_port" type="text" class="form-control" name="company_port" placeholder="Hostname">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Schema</label>
+                                    <input ng-model="company.db_schema" ng-value="company.cid + '_db'" type="text" class="form-control" name="company_schema" placeholder="Schema">
+                                </div>
+                            </div>
+                            <div class="form-group form-material row">
+                                <div class="col-md-4">
+                                    <label class="control-label">Username</label>
+                                    <input ng-model="company.db_username" type="text" class="form-control" name="company_username" placeholder="Username">
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="control-label">Password</label>
+                                    <input ng-model="company.db_password" type="text" class="form-control" name="company_password" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group form-material row">
+                                <div class="col-xs-4 col-xs-offset-4 col-md-4 col-md-offset-4 col-md-4 col-md-offset-4">
+                                    <button type="submit" class="btn btn-block btn-primary">Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- End Panel Static Lables -->
+            </div>
+        </div>
+    </div>
+</div>

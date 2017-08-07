@@ -1,0 +1,109 @@
+<div class="page-content page-content-table">
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Remark/Image</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+
+                    
+                    <textarea ng-model="inventory.item.notepad" type="text" class="form-control" rows="10" style="margin-top: 0px;"></textarea>
+
+                    <div class="col-md-6" style="margin-top: 10px;">
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
+                            <div class="panel-heading">
+                                &nbsp;&nbsp;
+                                <label style="font-size: x-medium;">
+                                    Overwrite Remark On
+                                </label>
+                            </div>
+                            <div class="panel-body" style="text-align: left;">
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox"  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lowivrmk  == '1'" ng-model="inventory.item.lowivrmk" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Invoice </label>
+                                </div>
+
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox"  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lowsormk  == '1'" ng-model="inventory.item.lowsormk" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Sales Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox" style="display: inline;"  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lowpormk  == '1'" ng-model="inventory.item.lowpormk"
+                                    />
+                                    <label class="control-label" style="display: inline;">Purchase Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox" style="display: inline;"  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lowmirmk  == '1'" ng-model="inventory.item.lowmirmk"
+                                    />
+                                    <label class="control-label" style="display: inline;">Work Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox" style="display: inline;" disabled/>
+                                    <label class="control-label" style="display: inline;">RMA/ RTV Order</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="margin-top: 10px;">
+                        <div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
+                            <div class="panel-heading">
+                                &nbsp;&nbsp;
+                                <label style="font-size: x-medium;">
+                                    Print Remark On
+                                </label>
+                            </div>
+                            <div class="panel-body" style="text-align: left;">
+                                <div style="padding-bottom: 15px;">
+                                    <input  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lptivrmk  == '1'" ng-model="inventory.item.lptivrmk" type="checkbox" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Invoice </label>
+                                </div>
+
+                                <div style="padding-bottom: 15px;">
+                                    <input  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lptsormk  == '1'" ng-model="inventory.item.lptsormk" type="checkbox" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Sales Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lptpormk  == '1'" ng-model="inventory.item.lptpormk" type="checkbox" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Purchase Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input  ng-true-value="'1'" ng-false-value="'0'" ng-checked="inventory.item.lptmirmk  == '1'" ng-model="inventory.item.lptmirmk" type="checkbox" style="display: inline;"
+                                    />
+                                    <label class="control-label" style="display: inline;">Work Order</label>
+                                </div>
+                                <div style="padding-bottom: 15px;">
+                                    <input type="checkbox" disabled style="display: inline;" />
+                                    <label class="control-label" style="display: inline;">RMA/ RTV Order</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <img ng-show="inventory.item.cimagepath" ng-src="modules/maintenance/inventory/upload/{{inventory.item.cimagepath}}" style="max-width:200px;">
+                    </div>
+                    <div class="col-md-12" style="text-align: center; margin-top: 30px;">
+						<!--<div class="file-upload">
+							<input type="file" file-model="myFile" />
+							<button ng-click="uploadFile()">Add Image</button>
+						</div>-->
+						<div class="btn btn-primary btn-upload" upload-button url="./modules/maintenance/inventory/save_form.php" on-success="onImageSuccess(response)">Add Image</div>
+						<!-- <button ng-click="addNewContact()" type="button" class="btn btn-lg btn-success">Add Image</button>   -->
+						<input ng-click="saveFile()" multiple type="file" name="file" id="file" class="inputfile" value="Add Image" />
+
+						<!--<label for="file" class="btn btn-lg btn-success">Add Image</label>
+						<button type="button" class="btn btn-lg btn-danger">Delete Image</button>-->
+					</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

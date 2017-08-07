@@ -1,0 +1,29 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">GL Accounts</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Accounts Receiable</label>
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openGLAccountModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                    <input ng-model="customer.glaccount" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-include src="'modules/maintenance/customer/glaccounts/SelectGLAccountModal.html'"></ng-include>

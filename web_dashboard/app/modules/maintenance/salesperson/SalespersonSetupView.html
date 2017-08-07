@@ -1,0 +1,172 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white">
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Salesperson Maintenance</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="saveSalesperson()" ng-disabled="salesperson_form.$invalid || salesperson.id" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+                <button ng-click="deleteSalesperson()" ng-disabled="!salesperson.id" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i>
+                    Delete
+                </button>
+                <button ng-click="updateSalesperson()" ng-disabled="!salesperson.id" type="button" class="btn btn-primary" disabled>
+                    <i class="icon wb-refresh" aria-hidden="true" style="color: white;"></i>
+                    Update
+                </button>
+                <button ng-click="clearSalespersonForm()" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div class="page-content page-content-table">
+
+            <div class="col-md-5">
+                <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">&nbsp;</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group row">
+
+                            <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                                    <label class="control-label">Salesperson NO</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button ng-click="openSalespersonModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                            <input ng-model="salesperson.cslpnno" type="text" class="form-control" placeholder="Search salesperson">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Name</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="salesperson.cname" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Title</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="salesperson.ctitle" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                                    <label class="control-label">Revenue</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <div class="input-search">
+                                            <button ng-click="openRevenueModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                            <input ng-model="salesperson.crevncode" type="text" class="form-control" placeholder="Search revenue">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Address</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="salesperson.caddr1" type="text" class="form-control" />
+                                    <input ng-model="salesperson.caddr2" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">City</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="salesperson.ccity" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">State</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="salesperson.cstate" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Zip</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="salesperson.czip" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Country</label>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <input ng-model="salesperson.ccountry" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Phone</label>
+                                </div>
+                                <div class="col-md-5 col-sm-5 col-xs-5">
+                                    <input ng-model="salesperson.cphone" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                    <label class="control-label">Status</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select ng-init="salesperson.cstatus = salesperson_status_list[0].status" ng-model="salesperson.cstatus" ng-options="type.status as type.description for type in salesperson_status_list" class="form-control"></select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<ng-include src="'modules/maintenance/salesperson/SelectSalespersonModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/salesperson/SelectRevenueModal.html'"></ng-include>

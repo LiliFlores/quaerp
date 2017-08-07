@@ -1,0 +1,379 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white">
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Apply Payment</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="savePayment()" ng-disabled="!enable_save_button || settings_form.$invalid" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i> Save
+                </button>
+                <button ng-click="deleteAddress()" ng-disabled="1" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i>
+                    Delete
+                </button>
+                <button ng-click="updateAddress()" ng-disabled="1" type="button" class="btn btn-primary" disabled>
+                    <i class="icon wb-refresh" aria-hidden="true" style="color: white;"></i>
+                    Update
+                </button>
+                <button ng-disabled="1" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div class="page-content page-content-table">
+
+            <div class="col-md-12">
+                <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Settings</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form name="settings_form">
+
+                            <div class="col-md-4">
+                                <div class="form-group row">
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 5px;">
+                                            <label class="control-label">Customer</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <button ng-click="openClientModal()" type="button" class="input-search-btn"><i class="icon wb-search"></i></button>
+                                                    <input ng-model="payment_form.ccustno" type="text" class="form-control" placeholder="Search Customer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Company</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <input ng-model="payment_form.ccompany" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Address</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <input ng-model="payment_form.caddr1" type="text" class="form-control" readonly/>
+                                            <input ng-model="payment_form.caddr2" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">City</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <input ng-model="payment_form.ccity" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                                            <div class="col-md-3" style="padding-top: 10px;">
+                                                <label class="control-label">State</label>
+                                            </div>
+                                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                                <input ng-model="payment_form.cstate" type="text" class="form-control" readonly/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6" style="padding: 0px; padding-top: 10px;">
+                                            <div class="col-md-3" style="padding-top: 10px;">
+                                                <label class="control-label">Zip</label>
+                                            </div>
+                                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                                <input ng-model="payment_form.czip" type="text" class="form-control" readonly/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Phone</label>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5 col-xs-5">
+                                            <input ng-model="payment_form.cphone1" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px; text-align:center;">
+                                        <button type="button" class="btn btn-primary" disabled>Payment Summary</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group row">
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 5px;">
+                                            <label class="control-label">Paycode</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <button ng-click="openPaycodeModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                    <input ng-model="payment_form.cpaycode" type="text" class="form-control" placeholder="Search paycode" aria-invalid="false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 5px;">
+                                            <label class="control-label">Deposit Bank</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <button ng-click="openBankModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                    <input ng-model="payment_form.cbankno" type="text" class="form-control" placeholder="Search Bank" aria-invalid="false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Paid Amount</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <!-- <input ng-model="totals.apply_ammount" min="0" string-to-number type="number" class="form-control" required/> -->
+                                            <input ng-model="totals.paid_ammount" type="text" class="form-control" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Deposit Date</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <input ng-model="payment_form.deposit_date" type="date" class="form-control" style="padding-right: 10px;"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 5px;">
+                                            <label class="control-label">Check/Card #</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <button ng-click="openCardModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                    <input ng-model="payment_form.ccardno" type="text" class="form-control" placeholder="Search card no" aria-invalid="false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Reference</label>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <input ng-model="payment_form.reference" type="text" class="form-control"  required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <hr>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Open Credit</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <button ng-click="openOpenCreditModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                    <input ng-model="totals.open_credit" disabled type="text" class="form-control" placeholder="Credit #" aria-invalid="false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button ng-click="openApplyOpenCreditModal()" type="button" class="btn btn-block btn-primary">Apply Credit</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Unapply Amt</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <div class="input-search">
+                                                    <!-- <button disabled type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button> -->
+                                                    <input ng-model="totals.apply_open_credit" disabled type="text" class="form-control" placeholder="Credit #" aria-invalid="false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button disabled type="button" class="btn btn-block btn-primary">Import Pymt File</button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group row">
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 0px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Bank Currency</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" ng-model="payment_form.ccurrcode" disabled/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input ng-model="totals.apply_ammount" type="text" class="form-control" disabled/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                        <div class="col-md-3" style="padding-top: 10px;">
+                                            <label class="control-label">Pay Currency</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" ng-model="payment_form.ccurrcode" disabled/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" disabled/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Invoices</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Paycode</th>
+                                        <th>Disc Rate</th>
+                                        <th>Due Date</th>
+                                        <th>Fin Charge</th>
+                                        <th>Balance</th>
+                                        <th>Apply Amount</th>
+                                        <th>Adjustment</th>
+                                        <th>Unapply Bal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="(current_invoice.nsalesamt - current_invoice.ntotpaid) != 0" ng-repeat="current_invoice in invoice_list">
+                                        <td>
+                                            {{current_invoice.cinvno}}
+                                        </td>
+                                        <td>
+                                            {{current_invoice.cpaycode}}
+                                        </td>
+                                        <td>
+                                            <span class="text-muted"><i class="wb wb-time"></i> {{(current_invoice.created).split(" ")[0]}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted"><i class="wb wb-time"></i> {{(current_invoice.created).split(" ")[0]}}</span>
+                                        </td>
+                                        <td>0.00</td>
+                                        <td>
+                                            <!-- {{current_invoice.nsalesamt - current_invoice.ntotpaid}} -->
+                                            <!-- {{current_invoice.nbalance}} -->
+                                            {{(current_invoice.nbalance - current_invoice.ntotpaid).toFixed(2)}}
+                                        </td>
+                                        <td>
+                                            <!-- <input id="{{'amount_total' + $index}}" ng-keypress="triggerTab($event, $index)" ng-change="calculateApplyAmountTotal()" min="0" max="{{current_invoice.nsalesamt - current_invoice.ntotpaid}}" ng-model="current_invoice.apply_amount" style="width: 150px;" class="form-control" type="number"></input> -->
+                                            <input id="{{'amount_total' + $index}}" ng-keypress="triggerTab($event, $index)" ng-change="calculateApplyAmountTotal()" ng-model="current_invoice.apply_amount" style="width: 150px;" class="form-control" type="text" decimal-places></input>
+                                        </td>
+                                        <td>0.00</td>
+                                        <td>
+                                            <!-- {{(current_invoice.nbalance - current_invoice.apply_amount).toFixed(2)}} -->
+                                            {{((current_invoice.nbalance - current_invoice.ntotpaid) - current_invoice.apply_amount).toFixed(2)}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <h3 style="margin: 0px;"><b>Total</b></h3>
+                                        </td>
+                                        <td>
+                                            <h4 style="margin: 0px;"><b>{{totals.fin_charge}}</b></h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="margin: 0px;"><b>{{totals.balance}}</b></h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="margin: 0px;"><b>{{totals.apply_ammount}}</b></h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="margin: 0px;"><b>{{totals.adjustment}}</b></h4>
+                                        </td>
+                                        <td>
+                                            <h4 style="margin: 0px;"><b>{{(totals.balance - totals.apply_ammount).toFixed(2)}}</b></h4>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- End Example Responsive -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<ng-include src="'modules/account_receivable/apply_payment/SelectCustomerModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/apply_payment/SelectPaycodeModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/apply_payment/SelectBankModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/apply_payment/SelectCardModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/apply_payment/OpenCreditModal.html'"></ng-include>
+<ng-include src="'modules/account_receivable/apply_payment/ApplyOpenCreditModal.html'"></ng-include>

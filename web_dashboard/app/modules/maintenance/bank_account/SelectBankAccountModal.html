@@ -1,0 +1,37 @@
+<div id="SelectBankAccountModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Bank Account</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Currency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-click="selectBankAccount(selected_bank_account)" ng-repeat='selected_bank_account in bank_list'>
+                                    <td>{{selected_bank_account.id}}</td>
+                                    <td>{{selected_bank_account.cbankname}}</td>
+                                    <td>{{selected_bank_account.cdescript}}</td>
+                                    <td>{{selected_bank_account.ccurrcode}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

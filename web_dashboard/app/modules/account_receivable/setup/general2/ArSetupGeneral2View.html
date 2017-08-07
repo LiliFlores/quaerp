@@ -1,0 +1,72 @@
+<div class="page-content page-content-table">
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Default for New Customers</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="credit_limit">Credit Limit</label>
+                    <input ng-blur="updateSettings()" string-to-number ng-model="arsyst.credit_limit" min="0" type="number" id="credit_limit" class="form-control" placeholder="10000" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="pay_code"><strong>Pay Code</strong></label>
+                    <div>
+                        <label>{{arsyst.arpycd.cpaycode}}</label>
+                    </div>
+                    <select ng-model="arsyst.arpycd" ng-options="arpycd.cpaycode for arpycd in arpycd_list" id="pay_code" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="warehouse"><strong>Warehouse</strong></label>
+                    <div>
+                        <label>{{arsyst.arwhse.cwarehouse}} - {{arsyst.arwhse.cdescript}}</label>
+                    </div>
+                    <select ng-model="arsyst.arwhse" ng-options="arwhse.cwarehouse for arwhse in arwhse_list" id="warehouse" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label"><strong>Statement</strong></label>
+                    <form>
+                        <div class="radio-custom radio-primary">
+                            <input ng-model="arsyst.statement" type="radio" id="print_open_item" name="print_open_item" value="print_open_item">
+                            <label for="print_open_item">Print Open Item</label>
+                        </div>
+                        <div class="radio-custom radio-primary">
+                            <input ng-model="arsyst.statement" type="radio" id="print_balance_forward" name="print_balance_forward" value="print_balance_forward">
+                            <label for="print_balance_forward">Print Balance Forward</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Non-Stock Inventory</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label"><strong>Revenue Code</strong></label>
+                    <div>
+                        <label>{{arsyst.arrevn.crevncode}}</label>
+                    </div>
+                    <select ng-model="arsyst.arrevn" ng-options="arrevn.crevncode for arrevn in arrevn_list" id="revenue_code" class="form-control">
+                    </select>
+                </div>
+
+                <div class="form-group form-material">
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.umtpboet" ng-true-value="'1'" ng-false-value="'0'" ng-checked="arsyst.umtpboet" type="checkbox" id="umtpboet">
+                        <label for="umtpboet">Use Multicurrency Transaction Priced Based on Exchange Rate</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<dir class="row" style="text-align: center;">
+    <button ng-click="updateArsystSettingsGeneral2()" class="btn btn-lg btn-success">Update</button>
+</div>

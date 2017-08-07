@@ -1,0 +1,66 @@
+<div id="SelectRevenueModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Revenue Code Full Search</h4>
+            </div>
+            <div class="modal-body">
+               <!-- <div class="col-md-6">
+                   <div class="form-group row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="control-label">Search by </label>
+                            <select class="control-label">
+                                <option>Revenue Code</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-8" style="padding-right: 0px;">
+                                <label class="control-label">Revenue Code</label>
+                                <input  ng-model="inventory.salesrev" type="text" class="form-control" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="radio-custom radio-primary">
+                            <input type="checkbox" disabled="disabled">
+                            <label for="r1">Ignore upper/lower cases</label>
+                        </div>
+                        <div class="radio-custom radio-primary">
+                            <input type="checkbox" >
+                            <label for="r1">Search for CONTAINS</label>
+                        </div>
+                                  
+                    </div>
+                </div>-->
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Revenue Code</th>
+                                    <th>Description</th>
+                                    <th>Sales Revenues</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{selectRow : revenue.crevncode == inventory.item.crevncode}" ng-click="selectRevenue(revenue)" ng-repeat='revenue in revenue_list'>
+                                    <td>{{revenue.crevncode}}</td>
+                                    <td>{{revenue.cdescript}}</td>
+                                    <td>{{revenue.crevnacc}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

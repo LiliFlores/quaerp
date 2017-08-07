@@ -1,0 +1,58 @@
+
+API LIST:
+-------------------------------
+Endpoint:
+    /login
+Method:
+    POST
+Payload:
+    {
+        "username": "username",
+        "password": "password"
+    }
+-------------------------------
+Endpoint:
+    /validatetoken
+Method:
+    GET
+Url parameter:
+    /validatetoken/{TOKEN}
+-------------------------------
+
+
+GENERIC APIs
+-------------------------------
+Endpoint:
+    /{ENTITY}
+Method:
+    GET
+Url parameter:
+    /{ENTITY}/{ENTITY_ID}
+    /{ENTITY}/{KEY}/{VALUE}/{LIMIT}/{ROWS}
+    /{ENTITY}/LIMIT/{ROWS}
+-------------------------------
+Endpoint:
+    /{ENTITY}
+Method:
+    POST
+Payload:
+    {
+        "key": "value"
+    }
+-------------------------------
+Endpoint:
+    /{ENTITY}
+Method:
+    UPDATE
+Payload:
+    {
+        "key": "value"
+    }
+-------------------------------
+Endpoint:
+    /{ENTITY}
+Method:
+    DELETE
+Url parameter:
+    /{ENTITY}/{ENTITY_ID}
+-------------------------------

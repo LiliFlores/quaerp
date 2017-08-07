@@ -1,0 +1,284 @@
+<div class="page-content page-content-table">
+
+	<div class="col-sm-12">
+		<div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+			<div class="panel-heading">
+				<h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Inventory</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Item #</label>
+							<input ng-model="inventory.item.citemno" type="text" ng-blur="checkItemExist()" class="form-control" />
+
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Description</label>
+							<input ng-model="inventory.item.cdescript" type="text" class="form-control" />
+
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+
+							<label class="control-label">Inventory Type</label>
+							<input ng-model="inventory.item.type.ctype" disabled type="text" class="form-control col-md-8" />
+							<button type="button" ng-disabled="!inventory.item.citemno" class="btn btn-default col-md-12 btn-info" style="padding: 0px;margin-top: 5px;"
+							 ng-click="changeTypeModal()"> Change Type </button>
+
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Class</label>
+							<div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectClassModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="inventory.item.cclass" ng-disabled="!inventory.item.citemno" type="text" class="form-control" placeholder="Search class" ng-required="required">
+								</div>
+							</div>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Product Line</label>
+							<div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectProductLineModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="inventory.item.cprodline" ng-disabled="!inventory.item.citemno" type="text" class="form-control" placeholder="Search Product Line">
+								</div>
+							</div>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Buyer</label>
+							<div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectBuyerModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="inventory.item.cbuyer" ng-disabled="!inventory.item.citemno" type="text" class="form-control" placeholder="Search Buyer">
+								</div>
+							</div>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">U of M</label>
+							<div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectUofMModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="inventory.item.cmeasure" ng-disabled="!inventory.item.citemno" type="text" class="form-control" placeholder="Search U of M">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+							<div class="col-md-6" style="padding-right: 0px;">
+								<label class="control-label">Barcode ID</label>
+								<input ng-model="inventory.item.cbarcode1" type="text" class="form-control" />
+							</div>
+							<div class="col-md-6" style="padding-right: 0px;">
+								<label class="control-label">&nbsp;</label>
+								<input ng-model="inventory.item.cbarcode2" type="text" class="form-control" />
+							</div>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Subtitule Item</label>
+							<input type="checkbox" style="display: inline;" ng-model="inventory.item.lsubitem" disabled/>
+						</div>
+
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Vendor #</label>
+							<div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectVendorModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="inventory.item.cvendno" ng-disabled="!inventory.item.citemno" type="text" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Unit Price</label>
+							<input ng-model="inventory.item.nprice" format="number" type="text" class="form-control" />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Repair Charge</label>
+							<input ng-model="inventory.item.nrepprice" format="number" type="text" class="form-control" disabled="disabled" />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Multi-Level Price</label>
+							<input ng-model="inventory.item.lmlprice" format="number" type="text" class="form-control" disabled/>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Special Price</label>
+							<input ng-model="inventory.item.nspprice" format="number" type="text" class="form-control" disabled/>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Start/End Date</label>
+							<input ng-model="inventory.item.dspstart" type="date" class="form-control" disabled/>
+							<input ng-model="inventory.item.dspend" type="date" class="form-control" disabled/>
+						</div>
+
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Restocking %</label>
+							<input ng-model="inventory.item.nrstkpct" format="number" type="text" class="form-control" disabled />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Min Rstk Arnt</label>
+							<input ng-model="inventory.item.nrstkmin" format="number" type="text" class="form-control" disabled />
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Qty Decimals</label>
+							<input ng-model="inventory.item.nqtydec" type="text" class="form-control" readonly />
+
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Reorder Point</label>
+							<input ng-model="inventory.item.nreodpt" type="text" class="form-control" format="number"  />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Reorder Qty</label>
+							<input ng-model="inventory.item.nreordqty" format="number" type="text" class="form-control" />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">On-order Qty</label>
+							<input ng-model="inventory.item.nonorder" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">In-transit Qty</label>
+							<input ng-model="inventory.item.nintransit" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">In-process Qty</label>
+							<input ng-model="inventory.item.ninprocess" type="text" class="form-control" readonly />
+						</div>
+
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Allocated Qty</label>
+							<input ng-model="inventory.item.nallocate" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Defective Qty</label>
+							<input ng-model="inventory.defqty" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">On-hand Qty</label>
+							<input ng-model="inventory.item.nonhand" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Booked Qty</label>
+							<input ng-model="inventory.item.nbook" type="text" class="form-control" readonly />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Available Qty</label>
+							<input value="{{inventory.item.nonhand - inventory.item.nbook}}" type="text" class="form-control" readonly />
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Status</label>
+							<input ng-model="inventory.item.cstatus" type="text" class="form-control" readonly/>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Create Date</label>
+							<input ng-model="inventory.item.dcreate"  type="date" class="form-control" value={{date}} />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Cost Method</label>
+							<input type="text" class="form-control" readonly/>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Lot Control</label>
+							<input type="checkbox" style="display: inline;" disabled />
+						</div>
+						<div style="padding-bottom: 15px;">
+							<label class="control-label">Kit Item</label>
+							<!--<input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"    ng-checked="inventory.item.lkititem == '1'" ng-model="inventory.item.lkititem" ng-value="inventory.item.lkititem"
+							 ng-click="toggleCheckbox(inventory.item.lkititem)" style="display: inline;" />-->
+							<input type="checkbox" ng-model="inventory.item.lkititem" ng-true-value="'YES'" ng-false-value="'NO'"   ng-checked="inventory.item.lkititem == '1'" />
+						</div>
+						<div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
+							<div class="panel-heading">
+								&nbsp;&nbsp;
+								<label style="font-size: x-medium;">
+                                    Used in
+                                </label>
+							</div>
+							<div class="panel-body">
+								<div style="padding-bottom: 15px;">
+									<input type="checkbox" style="display: inline;" ng-true-value="'YES'" ng-false-value="'NO'" ng-checked="inventory.item.laritem == '1'" ng-model="inventory.item.laritem"
+									/>
+									<label class="control-label" style="display: inline;">Invoice / Sales Order</label>
+								</div>
+
+								<div style="padding-bottom: 15px;">
+									<input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"    ng-checked="inventory.item.lpoitem == '1'" ng-model="inventory.item.lpoitem" style="display: inline;"
+									/>
+									<label class="control-label" style="display: inline;">Purchase Order</label>
+								</div>
+								<div style="padding-bottom: 15px;">
+									<input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"    ng-checked="inventory.item.lmiitem == '1'" ng-model="inventory.item.lmiitem" style="display: inline;"
+									/>
+									<label class="control-label" style="display: inline;">Work Order</label>
+								</div>
+								<div style="padding-bottom: 15px;">
+									<input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"    ng-checked="inventory.item.lioitem == '1'" ng-model="inventory.item.lioitem" style="display: inline;"
+									/>
+									<label class="control-label" style="display: inline;">Internet Order</label>
+								</div>
+								<button type="button" class="btn btn-primary" style="width: 40%;" ng-disabled="!activate_internet_order_button">
+                                    B.O.M.
+                                </button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-8">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div style="padding-bottom: 15px;">Item Aduanal </label>
+								<input ng-model="inventory.item.item_aduanal" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div style="padding-bottom: 15px;">
+								<label class="control-label">Unidad de Medida</label>
+								<input ng-model="inventory.item.item_um" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div style="padding-bottom: 15px;">
+								<label class="control-label">Descripción</label>
+								<input ng-model="inventory.item.item_aduanal_desc" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div style="padding-bottom: 15px;">
+								<label class="control-label">Fracción Aduanal</label>
+								<input ng-model="inventory.item.item_frac_aduanal" format="number" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div style="padding-bottom: 15px;">
+								<label class="control-label">Factor</label>
+								<input ng-model="inventory.item.item_factor" type="text" class="form-control" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<ng-include src="'modules/maintenance/inventory/information/SelectInventoryItemModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectWhseModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectClassModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectVendorModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectUofMModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectProductLineModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectBuyerModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/ChangeTypeModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/TypesModalTable.html'"></ng-include>
+
+
+<ng-include src="'modules/maintenance/inventory/information/SelectWarehouseModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectAddressModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectSalesTaxModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/inventory/information/SelectSalespersonModal.html'"></ng-include>

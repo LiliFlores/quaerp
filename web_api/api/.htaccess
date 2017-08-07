@@ -1,0 +1,5 @@
+#mod_rewrite
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ start.php [QSA,L]

@@ -1,0 +1,59 @@
+<div id="SelectVendorModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Inventory Vendor for Item # {{inventory.item.citemno}}</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="col-md-8">
+                   <div class="form-group row">
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">Class</label>
+                                <input  ng-model="inventory.class" type="text" class="form-control" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Vendor #</th>
+                                    <th>Vendor Part#</th>
+                                    <th>U of M</th>
+                                    <th>Purchase Price</th>
+                                    <th>As of</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-class="{selectRow : vendor.cvendno == inventory.item.cvendno}"  ng-click="selectVendor(vendor)" ng-repeat='vendor in vendor_list'>
+                                    <td>{{vendor.cvendno}}</td>
+                                    <td>{{vendor.cpartno}}</td>
+                                    <td>{{vendor.cmeasure}}</td>
+                                    <td>{{vendor.cdescript}}</td>
+                                    <td>{{vendor.dasoft}}</td>
+                                    <td>{{vendor.ldefault}}</td>
+                                    <td>{{vendor.ncost}}</td>
+                                    <td>{{vendor.nlastcost}}</td>
+                                    <td>{{vendor.nvndwarprd}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

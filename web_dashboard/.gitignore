@@ -1,0 +1,8 @@
+app/example/*
+app/modules_old/*
+app/views_old/*
+template/*
+node_modules/*
+bower_components/*
+*_bk
+*.bk

@@ -1,0 +1,175 @@
+<style>
+    .ar-menu-active {
+        color: #62a8ea;
+        background-color: #f3f7f9;
+    }
+</style>
+<div class="page bg-white">
+    <!-- Forum Content -->
+    <div class="page-main">
+
+        <!-- Forum Content Header -->
+        <div class="page-header" style="padding-bottom: 10px;">
+            <h1 class="page-title">Bank Account Maintenance</h1>
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <button ng-click="saveBankAccount()" ng-disabled="bank_account.id || bank_form.$invalid" type="button" class="btn btn-success">
+                    <i class="icon wb-check" aria-hidden="true"></i>
+                    Save
+                </button>
+                <button ng-click="deleteBankAccount()" ng-disabled="!bank_account.id" type="button" class="btn btn-danger">
+                    <i class="icon wb-trash" aria-hidden="true"></i>
+                    Delete
+                </button>
+                <button ng-click="updateBankAccount()" ng-disabled="!bank_account.id" type="button" class="btn btn-primary" disabled>
+                    <i class="icon wb-refresh" aria-hidden="true" style="color: white;"></i>
+                    Update
+                </button>
+                <button ng-click="clearBankAccountForm()" type="button" class="btn btn-warning">
+                    <i class="icon wb-order" aria-hidden="true" style="color: white;"></i>
+                    Clear
+                </button>
+                <button ui-sref="dashboard" type="button" class="btn btn-default" style="margin-left: 20px;">
+                    <i class="icon wb-close" aria-hidden="true"></i>
+                    Close
+                </button>
+
+            </div>
+        </div>
+
+        <hr style="margin-top:0px;">
+
+        <div class="page-content page-content-table">
+
+            <div class="col-md-5">
+                <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">&nbsp;</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="bank_form">
+                            <div class="form-group row">
+
+                                <div class="col-md-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Bank #</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <div class="input-search">
+                                                <button ng-click="openBankAccountModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                <input ng-model="bank_account.id" type="text" class="form-control" placeholder="Search Bank #" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <hr>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Bank Name</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="bank_account.cbankname" type="text" class="form-control" required/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Account Description</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="bank_account.cdescript" type="text" class="form-control" required/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Account #</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="bank_account.cbankacc" type="text" class="form-control" required/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Bank Routing #</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input ng-model="bank_account.cbankroute" type="text" class="form-control" required/></input>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">GL Account ID</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <div class="form-group">
+                                            <div class="input-search">
+                                                <button ng-click="openGLAccountsModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                <input ng-model="bank_account.cglacc" type="text" class="form-control" placeholder="Search GL Account ID" aria-invalid="false" required></input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Currency Code</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <div class="form-group">
+                                            <div class="input-search">
+                                                <button ng-click="openCurrencyCodeModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                                <input ng-model="bank_account.ccurrcode" type="text" class="form-control" placeholder="Search Currency Code" aria-invalid="false" required></input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px; padding-top: 10px;">
+                                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 10px;">
+                                        <label class="control-label">Account Type</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+
+                                        <div class="example-wrap">
+                                            <div class="radio-custom radio-primary">
+                                                <input ng-model="bank_account.caccttype" value="C" type="radio" id="input1" name="input1">
+                                                <label for="input1">Checking</label>
+                                            </div>
+                                            <div class="radio-custom radio-primary">
+                                                <input ng-model="bank_account.caccttype" value="S" type="radio" id="input2" name="input2">
+                                                <label for="input2">Savings</label>
+                                            </div>
+                                            <div class="radio-custom radio-primary">
+                                                <input ng-model="bank_account.caccttype" value="O" type="radio" id="input3" name="input3">
+                                                <label for="input3">Other</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<ng-include src="'modules/maintenance/bank_account/SelectGLAccountModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/bank_account/SelectBankAccountModal.html'"></ng-include>
+<ng-include src="'modules/maintenance/bank_account/SelectCurrencyCodeModal.html'"></ng-include>
+
+<!-- <ng-include src="'modules/maintenance/customer_bank/SelectbankModal.html'"></ng-include> -->

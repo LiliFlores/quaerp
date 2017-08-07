@@ -1,0 +1,46 @@
+<div class="page-content page-content-table">
+    <div class="col-sm-6">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Finance Charge</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-material">
+                    <label class="control-label" for="cpd">Charge Period Days</label>
+                    <input ng-blur="updateSettings()" ng-model="arsyst.cpd" string-to-number type="number" min="0" id="cpd" class="form-control" placeholder="10" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="msb">Min Statement Balance</label>
+                    <input ng-blur="updateSettings()" ng-model="arsyst.msb" string-to-number type="number" min="0" id="msb" class="form-control" placeholder="10" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="charge">Charge %</label>
+                    <input ng-blur="updateSettings()" ng-model="arsyst.charge" string-to-number type="number" min="0" id="charge" class="form-control" placeholder="10" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label" for="mca">Min. Charge Amount</label>
+                    <input ng-blur="updateSettings()" ng-model="arsyst.mca" string-to-number type="number" min="0" id="mca" class="form-control" placeholder="10" />
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label">Charge On</label>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.pdib" ng-true-value="'1'" ng-false-value="'0'" ng-checked="arsyst.pdib" ng-model="arsyst.pdib" type="checkbox" id="pdib" checked>
+                        <label for="pdib">Past Due Invoice Balance</label>
+                    </div>
+                </div>
+                <div class="form-group form-material">
+                    <label class="control-label">Apply On</label>
+                    <div class="checkbox-custom checkbox-primary">
+                        <input ng-model="arsyst.prate" ng-true-value="'1'" ng-false-value="'0'" ng-checked="arsyst.prate" type="checkbox" id="prate" checked>
+                        <label for="prate">Percentage Rate</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<dir class="row" style="text-align: center;">
+    <button ng-click="updateArsystSettingsFinanceCharge()" class="btn btn-lg btn-success">Update</button>
+</div>

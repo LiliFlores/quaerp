@@ -1,0 +1,22 @@
+<div class="page-login layout-full">
+    <div class=" vertical-align text-center row-centered">
+        <div class=" vertical-align-middle col-md-3 col-centered">
+            <div class="brand col-centered">
+                <h2 class="brand-text">Qualfin ERP Dashboard</h2>
+            </div>
+            <p translate="form_text">Inicia sesion con tu cuenta de Q.E.D.</p>
+
+            <form name="login_form" ng-submit="submit()" novalidate>
+                <div class="form-group">
+                    <label for="user_username">Email</label>
+                    <input id="user_username" name="user_username" type="text" class="form-control" ng-model="user.username" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="user_password">Password</label>
+                    <input id="user_password" name="user_password" type="password" class="form-control" ng-model="user.password" placeholder="Contraseña" ng-minlength="5" required>
+                </div>
+                <button type="submit" ng-disabled="!login_form.$valid" class="btn btn-primary btn-block">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+</div>
