@@ -12,7 +12,7 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 		
 	$scope.vendor_list = [];
     
-	var vendor_prom = GenericFactory.get("apvendor ", "", custom_headers);
+	/*var vendor_prom = GenericFactory.get("apvendor ", "", custom_headers);
 	var fob_prom = GenericFactory.get("arfob", "", custom_headers);
 	
 	vendor_prom.then(function (response) {
@@ -20,16 +20,26 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 			$scope.vendor_list = response.results;
 		}
 		return fob_prom;
-	});
+	});*/
 
 	$scope.openVendorModal = function () {
 		$("#VendorModal").modal("show");
 	}
 
 	$scope.selectVendor = function (vendor) {
-		$scope.po.cvendno = vendor.cvendno;
+		$scope.po.vendor = angular.copy(vendor);
 		$("#VendorModal").modal("hide");
 	};
+
+	$scope.loadVendorList = function () {
+		$scope.vendor_list = [];
+		GenericFactory.get("apvendor", "limit/20", custom_headers).then(function (response) {
+			if (response.status) {
+				$scope.vendor_list = response.results;
+			}
+		});
+	};
+	$scope.loadVendorList();
 
 
 }]);
