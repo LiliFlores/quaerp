@@ -1,0 +1,221 @@
+<div class="page-content page-content-table">
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;">Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Company</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Address</label>
+                            <input ng-value="customer.caddr1" type="text" class="form-control" />
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">City</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div class="col-md-12" style="padding: 0px; padding-bottom: 15px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <label class="control-label">State</label>
+                                <input ng-value="" type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6" style="padding-right: 0px;">
+                                <label class="control-label">zip</label>
+                                <input ng-value="" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Phone</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Class</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Industry</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">ATD Pur.</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Open Debit</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Credit Limit</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Balance</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">PO Backord.</label>
+                            <input ng-value="" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Credit Available</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="padding-top: 10px; padding-bottom: 10px;"></h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Ship Via: <strong>{{po.ship_via.description}}</strong></label>
+                            <select
+                                id="ship_via_select"
+                                ng-model="po.ship_via"
+                                class="form-control"
+                                ng-options="ship_via.description for ship_via in shipvia_list">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">F.O.B.: <strong>{{po.fob.description}}</strong></label>
+                            <select
+                                id="fob_select"
+                                class="form-control"
+                                ng-model="po.fob"
+                                ng-options="fob.code for fob in fob_list">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">SO #</label>
+                            <input ng-model="po.cpono" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Short Remark</label>
+                            <input ng-model="po.corderby" type="text" class="form-control" />
+                        </div> 
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Confirmed To</label>
+                            <input ng-model="po.corderby" type="text" class="form-control" />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Buyer</label>
+                            <input ng-model="po.corderby" type="text" class="form-control" />
+                        </div>
+                        
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Entered By</label>
+                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group has-feedback" ng-class="{'has-success': order_date_status, 'has-error': !order_date_status}" style="padding-bottom: 15px;">
+                            <label class="control-label">Order Date <strong>{{po.dorder}}</strong></label>
+                            <input order-date id="po_order_date" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group has-feedback" ng-class="{'has-success': po_date_status, 'has-error': !po_date_status}">
+                            <label class="control-label">Req Date <strong>{{po.dpo}}</strong></label>
+                            <input po-date id="po_po_date" type="text" class="form-control"/>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Warehouse: <strong>{{po.warehouse.cdescript}}</strong></label>
+                            <select
+                                id="warehouse_select"
+                                ng-model="po.warehouse"
+                                ng-options="warehouse.cwarehouse for warehouse in warehouse_list"
+                                class="form-control">
+                            </select>
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Pay Code</label>
+                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Discount %</label>
+                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                        </div>
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">Currency</label>
+                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+							<label class="control-label">Apply Sales Tax</label>
+							<input type="checkbox" ng-model="" />
+						</div>
+						<div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
+							<div class="panel-heading">
+								&nbsp;&nbsp;
+								<label style="font-size: x-medium;">
+                                    Type
+                                </label>
+							</div>
+							<div class="panel-body">
+								<div style="padding-bottom: 15px;">
+									<input type="radio" style="display: inline;"/>
+									<label class="control-label" style="display: inline;">Purchase Order</label>
+								</div>
+
+								<div style="padding-bottom: 15px;">
+									<input type="radio" style="display: inline;"
+									/>
+									<label class="control-label" style="display: inline;">Purchase Quote</label>
+								</div>
+							</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="panel panel-bordered panel-dark" style="border-style: solid; border-width: 1px;">
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div style="padding-bottom: 15px;">
+                            <label class="control-label">PO Remark #</label>
+                            <div class="input-search">
+                                <button  type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                <input ng-model="po.remark.code" type="text" class="form-control" name="" placeholder="Search remark code" aria-invalid="false">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="padding-bottom: 15px;">
+                            <textarea ng-model="po.remark.remarks" type="text" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Import Modals -->
+

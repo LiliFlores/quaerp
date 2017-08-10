@@ -391,6 +391,60 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$httpP
 				controller: "CustomerSetupGLAccountsController"
 			}
 		}
+	}).state("po_purchase_order", {
+		url: "/purchase_order",
+		parent: "dashboard",
+		views: {
+			"dashboard_content": {
+				templateUrl: "modules/purchase_order/base/PurchaseOrderView.html",
+				controller: "PurchaseOrderController"
+			},
+			"purchase_order_content@po_purchase_order": {
+				templateUrl: "modules/purchase_order/information/PurchaseOrderInformationView.html",
+				controller: "PurchaseOrderInformationController"
+			}
+		},
+		resolve: {
+			requireModuleAccess: ["ModuleAccess", function (ModuleAccess) {
+				return ModuleAccess.verify("AR-XX", true);
+			}]
+		}
+	}).state("po_purchase_order_information", {
+		url: "/information",
+		parent: "po_purchase_order",
+		views: {
+			"purchase_order_content": {
+				templateUrl: "modules/purchase_order/information/PurchaseOrderInformationView.html",
+				controller: "PurchaseOrderInformationController"
+			}
+		}
+	}).state("po_purchase_order_line_items", {
+		url: "/lineitems",
+		parent: "po_purchase_order",
+		views: {
+			"purchase_order_content": {
+				templateUrl: "modules/purchase_order/lineitems/PurchaseOrderLineItemsView.html",
+				controller: "PurchaseOrderLineItemsController"
+			}
+		}
+	}).state("po_purchase_order_order", {
+		url: "/orderto",
+		parent: "po_purchase_order",
+		views: {
+			"purchase_order_content": {
+				templateUrl: "modules/purchase_order/orderto/PurchaseOrderToView.html",
+				controller: "PurchaseOrderOrdertoController"
+			}
+		}
+	}).state("po_purchase_order_vendor", {
+		url: "/vendor",
+		parent: "po_purchase_order",
+		views: {
+			"purchase_order_content": {
+				templateUrl: "modules/purchase_order/notepad/PurchaseOrderNotepadView.html",
+				controller: "PurchaseOrderNotepadController"
+			}
+		}
 	}).state("inventory_setup", {
 		url: "/maintenance/inventory/setup",
 		parent: "dashboard",
