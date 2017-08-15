@@ -101,19 +101,22 @@
                    
         </div>
     </div>
-    <div class="col-sm-offset-6 col-sm-6  ">
-        <div class="panel">
-            <div class="panel-body">
-                <div class="form-group row">
-                    <div style="padding-bottom: 15px;">
-                            <label class="control-label">Sales Tax</label>
-                            <div class="form-group">
-                                <div class="input-search">
-                                    <button type="button" class="input-search-btn" ng-click=""><i class="icon wb-search"></i></button>
-                                    <input ng-model="" ng-disabled="" type="text" class="form-control" />
-                                </div>
-                            </div>
+    <div class="col-md-12" style="padding-bottom: 30px;">
+        <div class="col-md-6 pull-right">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="padding-top: 5px;">
+                    <label class="control-label pull-right">Sale Tax</label>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <button ng-click="openTaxModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                            <input ng-model="po.sales_tax.ctaxcode" type="text" class="form-control" name="" placeholder="Search sales tax">
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <input ng-value="po.sales_tax.ntaxrate1 + '%'" type="text" class="form-control" readonly/>
                 </div>
             </div>
         </div>
@@ -122,4 +125,5 @@
 </div>
 
 <!-- Import Modals -->
+<ng-include src="'modules/purchase_order/orderto/SelectSaleTaxModal.html'"></ng-include>
 

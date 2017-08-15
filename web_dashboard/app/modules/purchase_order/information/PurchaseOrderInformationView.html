@@ -51,7 +51,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">ATD Pur.</label>
-                            <input ng-value="po.vendor." type="text" class="form-control" disabled/>
+                            <input ng-value="po.vendor.natdpamt" type="text" class="form-control" disabled/>
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Open Debit</label>
@@ -71,7 +71,7 @@
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Credit Available</label>
-                            <input ng-value="" type="text" class="form-control" disabled/>
+                            <input ng-value="{{po.vendor.natdpamt-po.vendor.nbalance-po.vendor.npoboamt}}" type="text" class="form-control" disabled/>
                         </div>
                     </div>
                 </div>
@@ -119,12 +119,18 @@
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Buyer</label>
-                            <input ng-model="po.corderby" type="text" class="form-control" />
+                            <div class="form-group">
+								<div class="input-search">
+									<button type="button" class="input-search-btn" ng-click="SelectBuyerModal()"><i class="icon wb-search"></i></button>
+									<input ng-model="po.vendor.cbuyer" type="text" class="form-control" placeholder="Search Buyer">
+								</div>
+							</div>
+                            
                         </div>
                         
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Entered By</label>
-                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                            <input ng-model="po.vendor.centerby" type="text" class="form-control"  />
                         </div>
                     </div>
 
@@ -148,7 +154,12 @@
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Pay Code</label>
-                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                            <div class="form-group">
+                                <div class="input-search">
+                                    <button ng-click="openPayCodeModal()" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                    <input ng-model="po.vendor.cpaycode" type="text" class="form-control" placeholder="Search paycode">
+                                </div>
+                            </div>
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Discount %</label>
@@ -156,7 +167,7 @@
                         </div>
                         <div style="padding-bottom: 15px;">
                             <label class="control-label">Currency</label>
-                            <input ng-model="po.corderby" type="text" class="form-control"  />
+                            <input ng-model="po.vendor.ccurrcode" type="text" class="form-control"  />
                         </div>
                     </div>
 
@@ -164,7 +175,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div style="padding-bottom: 15px;">
 							<label class="control-label">Apply Sales Tax</label>
-							<input type="checkbox" ng-model="" />
+							<input type="checkbox" />
 						</div>
 						<div class="panel panel-bordered panel-primary" style="border-style: solid; border-width: 1px; border-color: #62a8ea">
 							<div class="panel-heading">
@@ -219,3 +230,5 @@
 
 <!-- Import Modals -->
 
+<ng-include src="'modules/purchase_order/information/SelectBuyerModal.html'"></ng-include>
+<ng-include src="'modules/purchase_order/information/SelectPaycodeModal.html'"></ng-include>
