@@ -16,6 +16,10 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 	$scope.shipvia_list = [];
 	$scope.paycode_list = [];
 	$scope.saletax_list = [];
+	$scope.item_list = [];
+	$scope.paycode_list = [];
+	$scope.cusaddr_list = [];
+	$scope.saletax_list = [];
     
 	var vendor_prom = GenericFactory.get("apvendor ", "", custom_headers);
 	var fob_prom = GenericFactory.get("arfob", "", custom_headers);
@@ -23,6 +27,14 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 	var shipvia_prom = GenericFactory.get("arfrgt", "", custom_headers);
 	var paycode_prom = GenericFactory.get("arpycd", "", custom_headers);
 	var saletax_prom = GenericFactory.get("costax", "", custom_headers);
+	var item_prom = GenericFactory.get("icitem", "limit/3", custom_headers);
+
+	var type_prom = GenericFactory.get("ictype", "limit/3", custom_headers);
+
+	var paycode_prom = GenericFactory.get("arpycd", "", custom_headers);
+	var cusaddr_prom = GenericFactory.get("arcadr", "", custom_headers);
+	var saletax_prom = GenericFactory.get("costax", "", custom_headers);
+	var exchangerate_prom = GenericFactory.get("cocurr", "", custom_headers);
 	
 	vendor_prom.then(function (response) {
 		if (response.status) {
@@ -56,8 +68,32 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 		if (response.status) {
 			$scope.saletax_list = response.results;
 		}
+		return item_prom;
+	}).then(function (response) {
+		if (response.status) {
+			$scope.item_list = response.results;
+		}
+
+		return paycode_prom;
+	}).then(function (response) {
+		if (response.status) {
+			$scope.paycode_list = response.results;
+		}
+
+		return cusaddr_prom;
+	}).then(function (response) {
+		if (response.status) {
+			$scope.cusaddr_list = response.results;
+		}
+
+		return saletax_prom;
+	}).then(function (response) {
+		if (response.status) {
+			$scope.saletax_list = response.results;
+		}
 	})
 
+  
 	$scope.openVendorModal = function () {
 		$("#VendorModal").modal("show");
 	}
@@ -120,6 +156,96 @@ app.controller('PurchaseOrderInformationController', ["$scope", "$rootScope", "$
 	
 
 }]);
+
+app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$timeout", "$state", "$q", "GenericFactory", "$filter", function ($scope, $rootScope, $timeout, $state, $q, GenericFactory, $filter) {
+	
+	$rootScope.enable_print_invoice_preview = true;
+
+	var custom_headers = {
+		headers: {
+			"db-name": $rootScope.syst_selected_company.db_schema
+		}
+	};
+
+	$scope.current_item_to_search = {};
+	$scope.selected_item = {};
+
+	$scope.addEmptyItem = function () {
+		$scope.po.items.push({
+			"discount": 0,
+			"shipqty": 1
+		});
+	};
+
+	$scope.searchStockItem = function (table_row_item) {
+		console.log("ÇLICK");
+		let item_found = false;
+		$scope.item_list.forEach(function (item) {
+			if (item.citemno == table_row_item.citemno) {
+				table_row_item = Object.assign(table_row_item, item);
+				item_found = true;
+				return;
+			}
+		});
+
+		if (!item_found) {
+			swal({
+				title: "Item not found",
+				text: "Want to proceed searching in item table list?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "Yes, lets search!",
+				closeOnConfirm: true
+			}, function () {
+				$scope.current_item_to_search = table_row_item;
+				$("#AddItemModal").modal("show");
+			});
+		}
+
+	};
+
+	$scope.addItemToList = function (stock_item) {
+		$scope.current_item_to_search = Object.assign($scope.current_item_to_search, stock_item);
+		$("#AddItemModal").modal("hide");
+	};
+
+	$scope.showItemInfo = function (item) {
+		$scope.selected_item = item;
+	};
+
+	$scope.removeItem = function ($index) {
+
+		$scope.po.items[$index].deleted = true;
+		// if (selected_item.to_update) {
+		//     swal({
+		//             title: "Are you sure?",
+		//             text: "You will not be able to recover this item!",
+		//             type: "warning",
+		//             showCancelButton: true,
+		//             confirmButtonColor: "#DD6B55",
+		//             confirmButtonText: "Yes, delete it!",
+		//             closeOnConfirm: true
+		//         },
+		//         function() {
+		//             GenericFactory.delete("aritrs", selected_item.id, custom_headers).then(function(response) {
+		//                 if (response.status) {
+		//                     $scope.invoice.items.splice($index, 1);
+		//                     alertify.success("Item deleted");
+		//                 } else {
+		//                     alertify.error("Please, contact admin");
+		//                 }
+		//             })
+		//
+		//         });
+		// } else {
+		//     $scope.invoice.items.splice($index, 1);
+		// }
+
+	};
+
+}]);
+
 
 app.controller('PurchaseOrderNotepadController', ["$scope", "$rootScope", "$timeout", "$state", "$q", "GenericFactory", function ($scope, $rootScope, $timeout, $state, $q, GenericFactory) {
 	console.log("asd");
