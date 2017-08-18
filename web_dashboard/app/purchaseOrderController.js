@@ -6,6 +6,27 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 		}
 	};
 
+    $scope.$watch('po.items', function () {
+
+		$scope.po.subtotal = 0;
+		$scope.po.total_discount = 0;
+		$scope.po.items.forEach(function (item, index) {
+			if (!item.deleted) {
+				$scope.po.subtotal += (item.shipqty * item.nprice);
+				$scope.po.total_discount += (item.shipqty * item.nprice) * (item.discount / 100);
+			}
+		});
+
+		$scope.po.subtotal = ($scope.po.subtotal).toFixed(2);
+		$scope.po.total_discount = ($scope.po.total_discount).toFixed(2);
+
+		$scope.calculateOverwriteSalesTax();
+		$timeout(function () {
+			$scope.calculatepoTotal();
+		});
+
+	}, 1);
+
 	$scope.po = {};
 	$scope.po.items = [];
 	$scope.po_method_list = ["Create Purchase Order", ""];
@@ -147,9 +168,33 @@ app.controller('PurchaseOrderController', ["$scope", "$rootScope", "$timeout", "
 	};
 
 	$scope.selectTax = function (tax) {
-		$scope.invoice.sales_tax = tax;
+		$scope.po.sales_tax = tax;
 		$("#SelectSaleTaxModal").modal("hide");
 	};
+
+	$scope.calculateOverwriteSalesTax = function () {
+
+		$timeout(function () {
+			if (typeof ($scope.po.sales_tax) == "undefined") {
+				$scope.po.sales_tax = {};
+				$scope.po.sales_tax.ntaxrate1 = 0;
+			}
+			$scope.tax_rate1 = parseFloat($scope.po.sales_tax.ntaxrate1);
+			$scope.tax_amount1 = ($scope.po.subtotal - $scope.po.total_discount) * (parseFloat($scope.po.sales_tax.ntaxrate1) / 100);
+
+			$scope.tax_rate_total = $scope.tax_rate1 + $scope.tax_rate2 + $scope.tax_rate3;
+			$scope.tax_amount_total = $scope.tax_amount1 + $scope.tax_amount2 + $scope.tax_amount3;
+
+			$scope.po.overwrite_sales_tax = $scope.tax_amount_total;
+
+			$scope.po.overwrite_sales_tax = $scope.po.overwrite_sales_tax.toFixed(2);
+		});
+	};
+
+	$scope.calculatepoTotal = function () {
+		$scope.po.total = ($scope.po.subtotal - $scope.po.total_discount + parseFloat($scope.po.overwrite_sales_tax) + parseFloat($scope.po.freight) + parseFloat($scope.po.adjustment)).toFixed(2);
+	};
+
 
 }]);
 app.controller('PurchaseOrderInformationController', ["$scope", "$rootScope", "$timeout", "$state", "$q", "GenericFactory", "$filter", function ($scope, $rootScope, $timeout, $state, $q, GenericFactory, $filter) {
@@ -158,8 +203,8 @@ app.controller('PurchaseOrderInformationController', ["$scope", "$rootScope", "$
 }]);
 
 app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$timeout", "$state", "$q", "GenericFactory", "$filter", function ($scope, $rootScope, $timeout, $state, $q, GenericFactory, $filter) {
-	
-	$rootScope.enable_print_invoice_preview = true;
+
+	$rootScope.enable_print_po_preview = true;
 
 	var custom_headers = {
 		headers: {
@@ -176,7 +221,6 @@ app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$ti
 			"shipqty": 1
 		});
 	};
-
 	$scope.searchStockItem = function (table_row_item) {
 		console.log("ÇLICK");
 		let item_found = false;
@@ -204,7 +248,6 @@ app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$ti
 		}
 
 	};
-
 	$scope.addItemToList = function (stock_item) {
 		$scope.current_item_to_search = Object.assign($scope.current_item_to_search, stock_item);
 		$("#AddItemModal").modal("hide");
@@ -230,7 +273,7 @@ app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$ti
 		//         function() {
 		//             GenericFactory.delete("aritrs", selected_item.id, custom_headers).then(function(response) {
 		//                 if (response.status) {
-		//                     $scope.invoice.items.splice($index, 1);
+		//                     $scope.po.items.splice($index, 1);
 		//                     alertify.success("Item deleted");
 		//                 } else {
 		//                     alertify.error("Please, contact admin");
@@ -239,7 +282,7 @@ app.controller('PurchaseOrderLineItemsController', ["$scope", "$rootScope", "$ti
 		//
 		//         });
 		// } else {
-		//     $scope.invoice.items.splice($index, 1);
+		//     $scope.po.items.splice($index, 1);
 		// }
 
 	};
@@ -270,20 +313,20 @@ app.controller('PurchaseOrderNotepadController', ["$scope", "$rootScope", "$time
 				var diff_days = parseInt((current_date - input_date) / (1000 * 60 * 60 * 24));
 
 				if (user_is_master) {
-					$rootScope.invoice_date_status = true;
+					$rootScope.po_date_status = true;
 					scope.$apply(function () {
-						scope.invoice.dinvoice = string_date;
+						scope.po.dpo = string_date;
 					});
 				} else {
 					if ((diff_days < 30) && (diff_days > 0)) {
-						$rootScope.invoice_date_status = true;
+						$rootScope.po_date_status = true;
 						scope.$apply(function () {
-							scope.invoice.dinvoice = string_date;
+							scope.po.dpo = string_date;
 						});
 					} else {
-						$rootScope.invoice_date_status = false;
+						$rootScope.po_date_status = false;
 						scope.$apply(function () {
-							scope.invoice.dinvoice = string_date;
+							scope.po.dpo = string_date;
 						});
 					}
 				}
@@ -313,18 +356,18 @@ app.directive("orderDate", ["$rootScope", function ($rootScope) {
 				if (user_is_master) {
 					$rootScope.order_date_status = true;
 					scope.$apply(function () {
-						scope.invoice.dorder = string_date;
+						scope.po.dorder = string_date;
 					});
 				} else {
 					if ((diff_days < 30) && (diff_days > 0)) {
 						$rootScope.order_date_status = true;
 						scope.$apply(function () {
-							scope.invoice.dorder = string_date;
+							scope.po.dorder = string_date;
 						});
 					} else {
 						$rootScope.order_date_status = false;
 						scope.$apply(function () {
-							scope.invoice.dorder = string_date;
+							scope.po.dorder = string_date;
 						});
 					}
 				}
@@ -352,20 +395,20 @@ app.directive("poDate", ["$rootScope", function ($rootScope) {
 				var diff_days = parseInt((current_date - input_date) / (1000 * 60 * 60 * 24));
 
 				if (user_is_master) {
-					$rootScope.invoice_date_status = true;
+					$rootScope.po_date_status = true;
 					scope.$apply(function () {
-						scope.invoice.dinvoice = string_date;
+						scope.po.dpo = string_date;
 					});
 				} else {
 					if ((diff_days < 30) && (diff_days > 0)) {
-						$rootScope.invoice_date_status = true;
+						$rootScope.po_date_status = true;
 						scope.$apply(function () {
-							scope.invoice.dinvoice = string_date;
+							scope.po.dpo = string_date;
 						});
 					} else {
-						$rootScope.invoice_date_status = false;
+						$rootScope.po_date_status = false;
 						scope.$apply(function () {
-							scope.invoice.dinvoice = string_date;
+							scope.po.dpo = string_date;
 						});
 					}
 				}
@@ -395,18 +438,18 @@ app.directive("orderDate", ["$rootScope", function ($rootScope) {
 				if (user_is_master) {
 					$rootScope.order_date_status = true;
 					scope.$apply(function () {
-						scope.invoice.dorder = string_date;
+						scope.po.dorder = string_date;
 					});
 				} else {
 					if ((diff_days < 30) && (diff_days > 0)) {
 						$rootScope.order_date_status = true;
 						scope.$apply(function () {
-							scope.invoice.dorder = string_date;
+							scope.po.dorder = string_date;
 						});
 					} else {
 						$rootScope.order_date_status = false;
 						scope.$apply(function () {
-							scope.invoice.dorder = string_date;
+							scope.po.dorder = string_date;
 						});
 					}
 				}

@@ -23,7 +23,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-if="!item.deleted" ng-repeat="item in invoice.items track by $index">
+                                    <tr ng-if="!item.deleted" ng-repeat="item in po.items track by $index">
                                         <td style="width: 200px;">
                                             <div class="input-search">
                                                 <button ng-click="searchStockItem(item)" type="button" class="input-search-btn"><i class="icon wb-search" aria-hidden="true"></i></button>
